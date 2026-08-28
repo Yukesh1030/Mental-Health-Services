@@ -15,12 +15,12 @@
     <style>
         body {
             background: linear-gradient(135deg, rgba(248,245,239,1) 0%, rgba(216,164,143,0.1) 100%);
-            min-min-height: 100vh; padding: 120px 0 60px;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            overflow: hidden;
+            padding: 100px 20px 40px;
         }
         .back-link {
             position: absolute;
@@ -198,8 +198,10 @@
 </head>
 <body>
 
-    <div class="shape-1"></div>
-    <div class="shape-2"></div>
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0; pointer-events: none;">
+        <div class="shape-1"></div>
+        <div class="shape-2"></div>
+    </div>
 
     <a href="index.html" class="back-link">
         <i class="fas fa-arrow-left"></i> Back to Home
@@ -214,7 +216,7 @@
 
         <form id="loginForm">
             <div class="input-group">
-                <label>Login As</label>
+                <label for="loginAs">Login As</label>
                 <div class="input-wrapper select-wrapper">
                     <i class="fas fa-user"></i>
                     <select id="loginAs" class="form-control">
@@ -225,7 +227,7 @@
             </div>
 
             <div class="input-group">
-                <label>Email Address</label>
+                <label for="email">Email Address</label>
                 <div class="input-wrapper">
                     <i class="fas fa-envelope"></i>
                     <input type="email" id="email" class="form-control" placeholder="user@example.com" required>
@@ -233,7 +235,7 @@
             </div>
 
             <div class="input-group">
-                <label>Password</label>
+                <label for="password">Password</label>
                 <a href="404.html" class="forgot-pwd">Forgot password?</a>
                 <div class="input-wrapper">
                     <i class="fas fa-lock"></i>
@@ -257,8 +259,8 @@
         document.addEventListener('DOMContentLoaded', () => {
             // GSAP Entrance
             gsap.fromTo('#loginCard', 
-                { y: 30, opacity: 0 },
-                { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+                { y: 30, autoAlpha: 0 },
+                { y: 0, autoAlpha: 1, duration: 0.8, ease: "power3.out" }
             );
 
             // Toggle Password visibility

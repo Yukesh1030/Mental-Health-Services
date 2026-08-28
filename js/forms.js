@@ -30,9 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isValid) {
                 // Mock Authentication Routing
                 if (loginAs && loginAs.value === 'Admin') {
-                    window.location.href = 'AdminDashboard.html';
+                    window.location.href = 'admin-dashboard.html';
                 } else {
-                    window.location.href = 'ClientDashboard.html';
+                    window.location.href = 'client-dashboard.html';
                 }
             }
         });
