@@ -17,6 +17,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon.classList.add('fa-bars');
             }
         });
+
+        // Relocate Login Button on Mobile
+        const relocateLoginBtn = () => {
+            const loginBtn = document.querySelector('.nav-actions .btn-primary, .nav-menu .btn-primary.mobile-login');
+            if (!loginBtn) return;
+
+            if (window.innerWidth <= 768) {
+                if (!loginBtn.classList.contains('mobile-login')) {
+                    loginBtn.classList.add('mobile-login');
+                    loginBtn.style.marginTop = '24px';
+                    navMenu.appendChild(loginBtn);
+                }
+            } else {
+                if (loginBtn.classList.contains('mobile-login')) {
+                    loginBtn.classList.remove('mobile-login');
+                    loginBtn.style.marginTop = '0';
+                    const navActions = document.querySelector('.nav-actions');
+                    if (navActions) navActions.insertBefore(loginBtn, mobileBtn);
+                }
+            }
+        };
+
+        window.addEventListener('resize', relocateLoginBtn);
+        relocateLoginBtn();
     }
 
     // --- Sticky Navbar ---
