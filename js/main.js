@@ -4,8 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.querySelector('.nav-menu');
     
     if (mobileBtn && navMenu) {
+        const navbar = document.querySelector('.navbar');
         mobileBtn.addEventListener('click', () => {
             navMenu.classList.toggle('is-open');
+            if(navbar) navbar.classList.toggle('menu-open');
             const icon = mobileBtn.querySelector('i');
             if (navMenu.classList.contains('is-open')) {
                 icon.classList.remove('fa-bars');

@@ -91,8 +91,15 @@
 
         /* Section 02 - Horizontal Scroll */
         .areas-scroll-wrapper {
-            overflow: hidden;
+            overflow-x: auto;
+            overflow-y: hidden;
             padding: 80px 0;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE and Edge */
+            scroll-snap-type: x mandatory;
+        }
+        .areas-scroll-wrapper::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
         }
         .areas-scroll-content {
             display: flex;
@@ -101,6 +108,7 @@
             padding: 0 var(--section-padding-x);
         }
         .area-card {
+            scroll-snap-align: center;
             width: 400px;
             height: 500px;
             background: var(--color-white);
@@ -312,18 +320,10 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .hero-section {
-                flex-direction: column;
-                padding-top: 120px;
-            }
             .hero-content {
                 padding-right: 0;
                 margin-bottom: 60px;
                 padding: 0 var(--section-padding-x);
-            }
-            .hero-visual {
-                width: 100%;
-                border-radius: 40px 40px 0 0;
             }
             .approach-split {
                 flex-direction: column;
@@ -331,6 +331,16 @@
             .mode-card {
                 flex-direction: column;
                 text-align: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .area-card {
+                width: 85vw;
+                max-width: 320px;
+            }
+            .areas-scroll-content {
+                gap: 20px;
             }
         }
     </style>
