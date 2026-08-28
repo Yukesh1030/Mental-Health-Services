@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Booking - STACKLY Wellness</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Section 01 - Hero */
+        .page-hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-white);
+            margin-bottom: 60px;
+        }
+        .page-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+        .page-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(49, 92, 85, 0.7);
+            z-index: -1;
+        }
+        .page-hero h1 {
+            color: var(--color-white);
+        }
+        .page-hero p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Section 02 - Contact Options */
+        .contact-options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+        .contact-option-card {
+            background: var(--color-white);
+            padding: 40px 32px;
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+        .contact-option-card i {
+            font-size: 40px;
+            color: var(--color-accent);
+            margin-bottom: 24px;
+        }
+
+        /* Section 03 - Booking Form Layout */
+        .booking-layout {
+            display: flex;
+            gap: 60px;
+            background: var(--color-white);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        .booking-form-wrapper {
+            flex: 1.5;
+            padding: 60px;
+        }
+        .booking-info-wrapper {
+            flex: 1;
+            background: var(--color-primary);
+            color: var(--color-secondary);
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .booking-info-wrapper h3, .booking-info-wrapper p {
+            color: var(--color-secondary);
+        }
+        .form-row {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        .form-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Section 04 & 05 - Preferences & Schedule Demo */
+        .pref-cards {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        .pref-card {
+            flex: 1;
+            padding: 24px;
+            border: 2px solid rgba(49, 92, 85, 0.1);
+            border-radius: var(--border-radius-sm);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        .pref-card:hover, .pref-card.selected {
+            border-color: var(--color-primary);
+            background: rgba(49, 92, 85, 0.05);
+        }
+
+        /* Section 06 - Location */
+        .location-wrapper {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            background: var(--color-white);
+            border-radius: var(--border-radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-sm);
+        }
+        .location-map {
+            flex: 1.5;
+            height: 400px;
+            background: #eee;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+        }
+
+        /* Section 07 - FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: var(--color-white);
+            margin-bottom: 16px;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .faq-head {
+            padding: 24px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 18px;
+        }
+        .faq-body {
+            height: 0;
+            opacity: 0;
+            padding: 0 32px;
+            overflow: hidden;
+        }
+        .faq-item.open .faq-body {
+            padding-bottom: 24px;
+        }
+
+        /* Section 08 - Final CTA */
+        .final-cta {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: var(--color-primary);
+            color: var(--color-secondary);
+            border-radius: 40px;
+            margin: 40px var(--section-padding-x);
+            padding: 80px 20px;
+        }
+
+        @media (max-width: 768px) {
+            .booking-layout, .location-wrapper {
+                flex-direction: column;
+            }
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            .form-row .form-group {
+                margin-bottom: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/Brand-logo.webp" alt="STACKLY Wellness">
+            </a>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="About.html" class="nav-link">About</a>
+                <a href="Services.html" class="nav-link">Services</a>
+                <a href="Therapists.html" class="nav-link">Therapists</a>
+                <a href="Resources.html" class="nav-link">Resources</a>
+                <a href="Contact.html" class="nav-link active">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="Login.html" class="btn btn-primary" style="padding: 10px 24px; font-size: 14px;">Login</a>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section 01: Hero -->
+    <header class="page-hero">
+        <img src="assets/hero-cover-contact-page.webp" alt="Contact Hero" class="page-hero-bg">
+        <div class="page-hero-overlay"></div>
+        <div class="container container-narrow">
+            <h1 class="hero-text">We're Here When You're Ready</h1>
+            <p style="font-size: 24px;">Reach out to begin your journey, ask a question, or simply find out more.</p>
+        </div>
+    </header>
+
+    <!-- Section 02: Contact Options -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="contact-options-grid">
+                <div class="contact-option-card">
+                    <i class="material-icons">help_outline</i>
+                    <h3>General Questions</h3>
+                    <p class="text-small" style="margin-bottom: 16px;">For inquiries about our services, pricing, or approach.</p>
+                    <a href="mailto:hello@stacklywellness.com" style="font-weight: 500;">hello@stacklywellness.com</a>
+                </div>
+                <div class="contact-option-card">
+                    <i class="material-icons">person_add</i>
+                    <h3>New Clients</h3>
+                    <p class="text-small" style="margin-bottom: 16px;">Ready to start? Fill out the booking form below.</p>
+                    <a href="#booking" style="font-weight: 500;">Go to Booking Form &darr;</a>
+                </div>
+                <div class="contact-option-card">
+                    <i class="material-icons">event_note</i>
+                    <h3>Existing Clients</h3>
+                    <p class="text-small" style="margin-bottom: 16px;">Need to reschedule or contact your therapist directly?</p>
+                    <a href="Login.html" style="font-weight: 500;">Login to Portal &rarr;</a>
+                </div>
+                <div class="contact-option-card">
+                    <i class="material-icons">handshake</i>
+                    <h3>Partnerships</h3>
+                    <p class="text-small" style="margin-bottom: 16px;">For media, workshops, and community outreach.</p>
+                    <a href="mailto:partners@stacklywellness.com" style="font-weight: 500;">partners@stacklywellness.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sections 03, 04, 05: Booking Form & Preferences -->
+    <section id="booking" class="section section-secondary">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 40px;">Request a Consultation</h2>
+            
+            <div class="booking-layout">
+                <div class="booking-form-wrapper">
+                    <!-- Form with ID required for validation in forms.js -->
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Preferred Therapist (Optional)</label>
+                                <select class="form-control">
+                                    <option value="">No preference / Match me</option>
+                                    <option value="maya">Dr. Maya Carter</option>
+                                    <option value="ethan">Dr. Ethan Brooks</option>
+                                    <option value="sophia">Dr. Sophia Reed</option>
+                                    <option value="daniel">Dr. Daniel Morgan</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Section 04: Session Preferences -->
+                        <label class="form-label">Preferred Session Type</label>
+                        <div class="pref-cards">
+                            <div class="pref-card selected">
+                                <i class="material-icons" style="font-size: 32px; color: var(--color-primary); margin-bottom: 8px;">laptop_mac</i>
+                                <h4>Online Video</h4>
+                            </div>
+                            <div class="pref-card">
+                                <i class="material-icons" style="font-size: 32px; color: var(--color-primary); margin-bottom: 8px;">living</i>
+                                <h4>In-Person</h4>
+                            </div>
+                        </div>
+
+                        <!-- Section 05: Availability -->
+                        <div class="form-group">
+                            <label class="form-label">General Availability (Demo Schedule)</label>
+                            <select class="form-control" required>
+                                <option value="">Select an option</option>
+                                <option value="morning">Mornings (8am - 12pm)</option>
+                                <option value="afternoon">Afternoons (12pm - 4pm)</option>
+                                <option value="evening">Evenings (4pm - 8pm)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Briefly describe what you're looking for support with</label>
+                            <textarea class="form-control" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Request</button>
+                        <p class="text-small text-center" style="margin-top: 16px;">We typically respond within 24-48 business hours.</p>
+                    </form>
+                </div>
+                
+                <div class="booking-info-wrapper">
+                    <h3>What Happens Next?</h3>
+                    <div style="margin-top: 24px;">
+                        <div style="margin-bottom: 24px; display: flex; gap: 16px;">
+                            <div style="background: rgba(255,255,255,0.2); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+                            <div>
+                                <h4 style="color: var(--color-white); margin-bottom: 4px;">Review</h4>
+                                <p class="text-small" style="color: rgba(255,255,255,0.7);">Our care coordinator reviews your submission to find the best therapeutic match.</p>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 24px; display: flex; gap: 16px;">
+                            <div style="background: rgba(255,255,255,0.2); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+                            <div>
+                                <h4 style="color: var(--color-white); margin-bottom: 4px;">Connect</h4>
+                                <p class="text-small" style="color: rgba(255,255,255,0.7);">We'll email you with therapist recommendations and an intake form.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 16px;">
+                            <div style="background: rgba(255,255,255,0.2); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+                            <div>
+                                <h4 style="color: var(--color-white); margin-bottom: 4px;">Begin</h4>
+                                <p class="text-small" style="color: rgba(255,255,255,0.7);">You schedule your first session directly through our secure client portal.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 06: Location -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 40px;">Our Office</h2>
+            <div class="location-wrapper">
+                <div style="flex: 1;">
+                    <h3 style="margin-bottom: 8px;">Downtown Wellness Center</h3>
+                    <p style="color: var(--color-text-light); margin-bottom: 24px;">123 Serenity Lane, Suite 400<br>Seattle, WA 98101</p>
+                    
+                    <h4 style="margin-bottom: 8px;">Hours</h4>
+                    <p class="text-small" style="color: var(--color-text-light); margin-bottom: 4px;">Monday - Friday: 8am - 8pm</p>
+                    <p class="text-small" style="color: var(--color-text-light); margin-bottom: 24px;">Saturday: 9am - 2pm</p>
+
+                    <h4 style="margin-bottom: 8px;">Parking & Transit</h4>
+                    <p class="text-small" style="color: var(--color-text-light);">Validated parking is available in the building garage. We are located two blocks from the central transit station.</p>
+                </div>
+                <div class="location-map">
+                    <!-- Placeholder map using an image or just a styled div for demo -->
+                    <img src="assets/Socializing.webp" alt="Office Map Location" style="width: 100%; height: 100%; object-fit: cover; filter: sepia(0.2) hue-rotate(140deg);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 07: FAQ -->
+    <section class="section section-secondary">
+        <div class="container container-narrow">
+            <h2 class="text-center" style="margin-bottom: 40px;">Contact & Booking FAQ</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-head">
+                        Do you accept insurance?
+                        <i class="material-icons faq-icon">add</i>
+                    </div>
+                    <div class="faq-body">
+                        <p>We are out-of-network providers for most major insurance plans. We provide superbills that you can submit to your insurance company for reimbursement depending on your out-of-network benefits.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-head">
+                        What are your session rates?
+                        <i class="material-icons faq-icon">add</i>
+                    </div>
+                    <div class="faq-body">
+                        <p>Our standard rates range from $150 to $220 per 50-minute session, depending on the therapist's licensure and experience level. We also offer a limited number of sliding scale spots based on financial need.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-head">
+                        What is your cancellation policy?
+                        <i class="material-icons faq-icon">add</i>
+                    </div>
+                    <div class="faq-body">
+                        <p>We require a 24-hour notice for any cancellations or rescheduling. Sessions cancelled with less than 24 hours notice are subject to the full session fee.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 08: Final CTA -->
+    <section class="section" style="padding-bottom: 80px; padding-top: 0;">
+        <div class="final-cta">
+            <div style="max-width: 600px;">
+                <h2 style="color: var(--color-secondary);">Crisis Support</h2>
+                <p style="color: rgba(248, 245, 239, 0.8); margin-bottom: 40px;">If you are experiencing a mental health emergency, please do not wait for an appointment. Immediate help is available.</p>
+                <a href="tel:988" class="btn" style="background: var(--color-white); color: var(--color-primary); margin-bottom: 16px;">Call or Text 988 (Crisis Lifeline)</a>
+                <p class="text-small" style="color: rgba(248, 245, 239, 0.6);">Or proceed to the nearest emergency room.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/Brand-logo.webp" alt="STACKLY Wellness">
+                    <p>Compassionate mental health support designed around your needs, your pace, and your journey.</p>
+                    <div class="footer-social">
+                        <a href="404.html"><i class="fab fa-instagram"></i></a>
+                        <a href="404.html"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="About.html">About</a></li>
+                        <li><a href="Services.html">Services</a></li>
+                        <li><a href="Therapists.html">Therapists</a></li>
+                        <li><a href="Resources.html">Resources</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="404.html">Individual Therapy</a></li>
+                        <li><a href="404.html">Couples Therapy</a></li>
+                        <li><a href="404.html">Family Therapy</a></li>
+                        <li><a href="404.html">Online Therapy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="Contact.html">Contact Us</a></li>
+                        <li><a href="404.html">FAQ</a></li>
+                        <li><a href="404.html">Crisis Resources</a></li>
+                        <li><a href="404.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 STACKLY Wellness. All rights reserved.</p>
+                <div style="display: flex; gap: 24px;">
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/forms.js"></script>
+    <script>
+        // Simple script for the preference card toggle
+        document.querySelectorAll('.pref-card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.querySelectorAll('.pref-card').forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+            });
+        });
+    </script>
+</body>
+</html>

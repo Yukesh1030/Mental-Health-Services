@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - STACKLY Wellness</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-white);
+            margin-bottom: 60px;
+        }
+        .page-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+        .page-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(49, 92, 85, 0.7);
+            z-index: -1;
+        }
+        .page-hero h1 {
+            color: var(--color-white);
+        }
+        .page-hero p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        .value-card {
+            text-align: center;
+            padding: 40px;
+            background: var(--color-secondary);
+            border-radius: var(--border-radius-lg);
+        }
+        .value-card i {
+            font-size: 48px;
+            color: var(--color-accent);
+            margin-bottom: 24px;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        .team-member {
+            text-align: center;
+        }
+        .team-member img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 24px;
+        }
+        
+        /* Section 08 - Final CTA */
+        .final-cta {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: var(--color-primary);
+            color: var(--color-secondary);
+            border-radius: 40px;
+            margin: 40px var(--section-padding-x);
+            padding: 80px 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/Brand-logo.webp" alt="STACKLY Wellness">
+            </a>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="About.html" class="nav-link active">About</a>
+                <a href="Services.html" class="nav-link">Services</a>
+                <a href="Therapists.html" class="nav-link">Therapists</a>
+                <a href="Resources.html" class="nav-link">Resources</a>
+                <a href="Contact.html" class="nav-link">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="Login.html" class="btn btn-primary" style="padding: 10px 24px; font-size: 14px;">Login</a>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="page-hero">
+        <img src="assets/Socializing.webp" alt="About Us Hero" class="page-hero-bg">
+        <div class="page-hero-overlay"></div>
+        <div class="container container-narrow">
+            <h1 class="hero-text" style="padding-top:100px;">Mental Healthcare Built Around People</h1>
+            <p style="font-size: 24px;">Creating safe spaces for growth, healing, and connection.</p>
+        </div>
+    </header>
+
+    <!-- Section 01: Our Story -->
+    <section class="section">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; gap: 60px; align-items: center;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h2>Our Story</h2>
+                    <p>STACKLY Wellness began with a simple belief: mental health support should feel as natural as taking care of your physical health. We saw a need for a space that moved away from clinical, cold environments and instead offered warmth, empathy, and true connection.</p>
+                    <p>What started as a small team of dedicated therapists has grown into a comprehensive mental wellness center, supporting individuals, couples, and families through their unique journeys.</p>
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <img src="assets/Runnig-recover-deppression.webp" alt="Our Story" style="border-radius: var(--border-radius-lg);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 02: Our Philosophy -->
+    <section class="section section-secondary">
+        <div class="container text-center container-narrow">
+            <h2>Our Philosophy</h2>
+            <p style="font-size: 20px; color: var(--color-primary); font-weight: 500;">People-first mental health care.</p>
+            <p>We believe that you are the expert of your own life. Our role is not to dictate your path, but to walk alongside you, offering the tools, insights, and safe space necessary for you to uncover your own resilience. Healing is not linear, and we honor the pace of your personal journey.</p>
+        </div>
+    </section>
+
+    <!-- Section 03: Our Values -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center">The Values That Guide Us</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="material-icons">favorite</i>
+                    <h3>Compassion</h3>
+                    <p>We approach every story with deep empathy and open hearts.</p>
+                </div>
+                <div class="value-card">
+                    <i class="material-icons">diversity_3</i>
+                    <h3>Respect</h3>
+                    <p>Honoring diverse backgrounds, identities, and life experiences.</p>
+                </div>
+                <div class="value-card">
+                    <i class="material-icons">verified_user</i>
+                    <h3>Trust</h3>
+                    <p>Building a secure foundation of confidentiality and reliability.</p>
+                </div>
+                <div class="value-card">
+                    <i class="material-icons">trending_up</i>
+                    <h3>Growth</h3>
+                    <p>Fostering an environment where continuous personal evolution is possible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 04: Our Team -->
+    <section class="section section-secondary">
+        <div class="container">
+            <h2 class="text-center">Meet the Minds Behind STACKLY</h2>
+            <p class="text-center" style="max-width: 600px; margin: 0 auto;">A diverse collective of specialists united by a common goal: your wellbeing.</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="assets/Practice-Yoga.webp" alt="Dr. Maya Carter">
+                    <h3>Dr. Maya Carter</h3>
+                    <p style="color: var(--color-accent); font-weight: 500;">Clinical Director</p>
+                </div>
+                <div class="team-member">
+                    <img src="assets/Cooking-for-recover-deppression.webp" alt="Dr. Ethan Brooks">
+                    <h3>Dr. Ethan Brooks</h3>
+                    <p style="color: var(--color-accent); font-weight: 500;">Lead Therapist</p>
+                </div>
+                <div class="team-member">
+                    <img src="assets/Socializing-for-recover-deppression.webp" alt="Sarah Jenkins">
+                    <h3>Sarah Jenkins</h3>
+                    <p style="color: var(--color-accent); font-weight: 500;">Care Coordinator</p>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="Therapists.html" class="btn btn-secondary">View All Therapists</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 05: Our Approach -->
+    <section class="section">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap-reverse; gap: 60px; align-items: center;">
+                <div style="flex: 1; min-width: 300px;">
+                    <img src="assets/Exploring-Nature-for-recover-deppression.webp" alt="Therapeutic Approach" style="border-radius: var(--border-radius-lg);">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h2>An Integrative Approach</h2>
+                    <p>We do not believe in a one-size-fits-all model. Our therapists draw from a variety of evidence-based modalities, including Cognitive Behavioral Therapy (CBT), Dialectical Behavior Therapy (DBT), Psychodynamic approaches, and Mindfulness-based practices.</p>
+                    <p>By integrating these methods, we tailor a therapeutic plan that resonates with how your specific mind works, ensuring the support you receive is as unique as you are.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 06: Our Spaces -->
+    <section class="section section-secondary">
+        <div class="container text-center">
+            <h2>Environments Designed for Calm</h2>
+            <p style="max-width: 700px; margin: 0 auto 40px;">From our physical offices to our digital platforms, every touchpoint is designed to reduce anxiety and promote peace.</p>
+            <img src="assets/Spots-for-recover-deppression.webp" alt="Our Spaces" style="width: 100%; height: 500px; object-fit: cover; border-radius: var(--border-radius-lg);">
+        </div>
+    </section>
+
+    <!-- Section 07: Community -->
+    <section class="section">
+        <div class="container text-center container-narrow">
+            <h2>Beyond the Therapy Room</h2>
+            <p>We are deeply committed to mental health awareness within our broader community. Through free workshops, support groups, and partnerships with local organizations, we strive to make mental health education accessible to everyone, reducing stigma one conversation at a time.</p>
+        </div>
+    </section>
+
+    <!-- Section 08: Final CTA -->
+    <section class="section" style="padding-bottom: 120px;">
+        <div class="final-cta">
+            <div style="max-width: 600px;">
+                <h2 style="color: var(--color-secondary);">Ready to Begin?</h2>
+                <p style="color: rgba(248, 245, 239, 0.8); margin-bottom: 40px;">Take the first step toward a healthier, more grounded you.</p>
+                <a href="Contact.html" class="btn" style="background: var(--color-white); color: var(--color-primary);">Book a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/Brand-logo.webp" alt="STACKLY Wellness">
+                    <p>Compassionate mental health support designed around your needs, your pace, and your journey.</p>
+                    <div class="footer-social">
+                        <a href="404.html"><i class="fab fa-instagram"></i></a>
+                        <a href="404.html"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="About.html">About</a></li>
+                        <li><a href="Services.html">Services</a></li>
+                        <li><a href="Therapists.html">Therapists</a></li>
+                        <li><a href="Resources.html">Resources</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="404.html">Individual Therapy</a></li>
+                        <li><a href="404.html">Couples Therapy</a></li>
+                        <li><a href="404.html">Family Therapy</a></li>
+                        <li><a href="404.html">Online Therapy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="Contact.html">Contact Us</a></li>
+                        <li><a href="404.html">FAQ</a></li>
+                        <li><a href="404.html">Crisis Resources</a></li>
+                        <li><a href="404.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 STACKLY Wellness. All rights reserved.</p>
+                <div style="display: flex; gap: 24px;">
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/forms.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof gsap !== 'undefined') {
+                const heroTl = gsap.timeline();
+                heroTl.from('.page-hero-bg', { 
+                          scale: 1.1, 
+                          opacity: 0, 
+                          duration: 1.5, 
+                          ease: "power3.out" 
+                      })
+                      .from('.hero-text', { y: 30, opacity: 0, duration: 0.8, ease: "power3.out" }, "-=0.6")
+                      .from('.page-hero p', { y: 20, opacity: 0, duration: 0.8, ease: "power2.out" }, "-=0.6");
+            }
+        });
+    </script>
+</body>
+</html>

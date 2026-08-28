@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - STACKLY Wellness</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-white);
+            margin-bottom: 60px;
+        }
+        .page-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+        .page-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(49, 92, 85, 0.7);
+            z-index: -1;
+        }
+        .page-hero h1 {
+            color: var(--color-white);
+        }
+        .page-hero p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .service-layout {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        .service-layout.reverse {
+            flex-direction: row-reverse;
+        }
+        .service-img {
+            flex: 1;
+            min-width: 300px;
+        }
+        .service-img img {
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        .service-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        .service-content ul {
+            margin-top: 24px;
+        }
+        .service-content li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: var(--color-text-light);
+        }
+        .service-content li::before {
+            content: '•';
+            color: var(--color-accent);
+            position: absolute;
+            left: 0;
+            font-size: 24px;
+            line-height: 1;
+            top: -4px;
+        }
+
+        /* Section 08 - Final CTA */
+        .final-cta {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: var(--color-primary);
+            color: var(--color-secondary);
+            border-radius: 40px;
+            margin: 40px var(--section-padding-x);
+            padding: 80px 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/Brand-logo.webp" alt="STACKLY Wellness">
+            </a>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="About.html" class="nav-link">About</a>
+                <a href="Services.html" class="nav-link active">Services</a>
+                <a href="Therapists.html" class="nav-link">Therapists</a>
+                <a href="Resources.html" class="nav-link">Resources</a>
+                <a href="Contact.html" class="nav-link">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="Login.html" class="btn btn-primary" style="padding: 10px 24px; font-size: 14px;">Login</a>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="page-hero" >
+        <img src="assets/hero-cover-Services-page.webp" alt="Services Hero" class="page-hero-bg">
+        <div class="page-hero-overlay"></div>
+        <div class="container container-narrow" >
+            <h1 class="hero-text" style="padding-top:100px;">Therapy Tailored to You</h1>
+            <p style="font-size: 24px;">Discover the right kind of support for your specific needs and journey.</p>
+        </div>
+    </header>
+
+    <!-- Section 01: Individual Therapy -->
+    <section class="section">
+        <div class="container">
+            <div class="service-layout">
+                <div class="service-content">
+                    <span style="color: var(--color-accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">01</span>
+                    <h2>Individual Therapy</h2>
+                    <p>One-to-one support tailored to your unique experiences. This is a dedicated space focused entirely on your personal growth, healing, and self-discovery.</p>
+                    <ul>
+                        <li>Explore recurring patterns and emotional triggers</li>
+                        <li>Develop healthy coping mechanisms</li>
+                        <li>Process past trauma in a safe environment</li>
+                        <li>Build stronger self-esteem and self-awareness</li>
+                    </ul>
+                </div>
+                <div class="service-img">
+                    <img src="assets/Sleeping-for-recover-deppression.webp" alt="Individual Therapy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 02: Couples Therapy -->
+    <section class="section section-secondary">
+        <div class="container">
+            <div class="service-layout reverse">
+                <div class="service-content">
+                    <span style="color: var(--color-accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">02</span>
+                    <h2>Couples Therapy</h2>
+                    <p>Relationship-focused support designed to improve communication, foster deep understanding, and navigate conflicts productively together.</p>
+                    <ul>
+                        <li>Rebuild trust and emotional intimacy</li>
+                        <li>Break negative communication cycles</li>
+                        <li>Navigate major life transitions as a team</li>
+                        <li>Align on future goals and values</li>
+                    </ul>
+                </div>
+                <div class="service-img">
+                    <img src="assets/Socializing-for-recover-deppression.webp" alt="Couples Therapy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 03: Family Therapy -->
+    <section class="section">
+        <div class="container">
+            <div class="service-layout">
+                <div class="service-content">
+                    <span style="color: var(--color-accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">03</span>
+                    <h2>Family Therapy</h2>
+                    <p>Support for the whole family unit. We help family members improve communication, resolve conflicts, and understand each other's perspectives better.</p>
+                    <ul>
+                        <li>Navigate blended family dynamics</li>
+                        <li>Support a family member through crisis</li>
+                        <li>Establish healthy boundaries</li>
+                        <li>Improve intergenerational understanding</li>
+                    </ul>
+                </div>
+                <div class="service-img">
+                    <img src="assets/Games-for-recover-deppression.webp" alt="Family Therapy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 04: Anxiety & Stress -->
+    <section class="section section-secondary">
+        <div class="container">
+            <div class="service-layout reverse">
+                <div class="service-content">
+                    <span style="color: var(--color-accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">04</span>
+                    <h2>Anxiety & Stress</h2>
+                    <p>Specialized support for anxiety, panic, and chronic stress or overwhelm. Learn to ground yourself and manage the physical and emotional symptoms of anxiety.</p>
+                    <ul>
+                        <li>Identify specific stress triggers</li>
+                        <li>Learn grounding and mindfulness techniques</li>
+                        <li>Challenge anxious thought patterns</li>
+                        <li>Regulate your nervous system</li>
+                    </ul>
+                </div>
+                <div class="service-img">
+                    <img src="assets/Cooking-for-recover-deppression.webp" alt="Anxiety and Stress">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 05: Depression Support -->
+    <section class="section">
+        <div class="container">
+            <div class="service-layout">
+                <div class="service-content">
+                    <span style="color: var(--color-accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">05</span>
+                    <h2>Depression Support</h2>
+                    <p>Professional, compassionate support for persistent low mood, lack of motivation, and feelings of hopelessness. You don't have to carry the weight alone.</p>
+                    <ul>
+                        <li>Understand the roots of depressive episodes</li>
+                        <li>Gently rebuild daily routines and motivation</li>
+                        <li>Reconnecting with joy and purpose</li>
+                        <li>Evidence-based interventions (CBT, etc.)</li>
+                    </ul>
+                </div>
+                <div class="service-img">
+                    <img src="assets/Exploring-Nature-for-recover-deppression.webp" alt="Depression Support">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 06: Life Transitions -->
+    <section class="section section-secondary">
+        <div class="container">
+            <div class="service-layout reverse">
+                <div class="service-content">
+                    <span style="color: var(--color-accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">06</span>
+                    <h2>Life Transitions</h2>
+                    <p>Support through major life changes. Whether you're facing a career shift, a move, a breakup, or a loss, having a guide can make the transition smoother.</p>
+                    <ul>
+                        <li>Process grief and loss</li>
+                        <li>Navigate career burnout and changes</li>
+                        <li>Adjust to new phases of life</li>
+                        <li>Find clarity in moments of uncertainty</li>
+                    </ul>
+                </div>
+                <div class="service-img">
+                    <img src="assets/Runnig-recover-deppression.webp" alt="Life Transitions">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 07: Online Therapy -->
+    <section class="section">
+        <div class="container">
+            <div class="service-layout">
+                <div class="service-content">
+                    <span style="color: var(--color-accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">07</span>
+                    <h2>Online Therapy</h2>
+                    <p>Flexible virtual sessions that bring high-quality care to you. We use secure, HIPAA-compliant platforms to ensure your privacy from the comfort of home.</p>
+                    <ul>
+                        <li>Accessible from anywhere in the state</li>
+                        <li>Flexible scheduling around your life</li>
+                        <li>Zero commute time</li>
+                        <li>Same standard of care as in-person</li>
+                    </ul>
+                </div>
+                <div class="service-img">
+                    <img src="assets/Spots-for-recover-deppression.webp" alt="Online Therapy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 08: Final CTA -->
+    <section class="section" style="padding-bottom: 120px;">
+        <div class="final-cta">
+            <div style="max-width: 600px;">
+                <h2 style="color: var(--color-secondary);">Find Your Support</h2>
+                <p style="color: rgba(248, 245, 239, 0.8); margin-bottom: 40px;">Ready to find the right therapist for your specific needs? We'll help you find a perfect match.</p>
+                <a href="Therapists.html" class="btn" style="background: var(--color-white); color: var(--color-primary);">Match With a Therapist</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/Brand-logo.webp" alt="STACKLY Wellness">
+                    <p>Compassionate mental health support designed around your needs, your pace, and your journey.</p>
+                    <div class="footer-social">
+                        <a href="404.html"><i class="fab fa-instagram"></i></a>
+                        <a href="404.html"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="About.html">About</a></li>
+                        <li><a href="Services.html">Services</a></li>
+                        <li><a href="Therapists.html">Therapists</a></li>
+                        <li><a href="Resources.html">Resources</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="404.html">Individual Therapy</a></li>
+                        <li><a href="404.html">Couples Therapy</a></li>
+                        <li><a href="404.html">Family Therapy</a></li>
+                        <li><a href="404.html">Online Therapy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="Contact.html">Contact Us</a></li>
+                        <li><a href="404.html">FAQ</a></li>
+                        <li><a href="404.html">Crisis Resources</a></li>
+                        <li><a href="404.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 STACKLY Wellness. All rights reserved.</p>
+                <div style="display: flex; gap: 24px;">
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/forms.js"></script>
+</body>
+</html>

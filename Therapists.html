@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Therapists - STACKLY Wellness</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-white);
+            margin-bottom: 60px;
+        }
+        .page-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+        .page-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(49, 92, 85, 0.7);
+            z-index: -1;
+        }
+        .page-hero h1 {
+            color: var(--color-white);
+        }
+        .page-hero p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Therapist Search */
+        .search-container {
+            background: var(--color-white);
+            padding: 40px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            margin-top: -100px;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .search-field {
+            flex: 1;
+            min-width: 200px;
+        }
+        .search-field select, .search-field input {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid rgba(49, 92, 85, 0.2);
+            border-radius: var(--border-radius-sm);
+            font-family: var(--font-family);
+            font-size: var(--text-body);
+        }
+        .search-btn {
+            background: var(--color-accent);
+            color: var(--color-white);
+            border: none;
+            padding: 16px 32px;
+            border-radius: var(--border-radius-sm);
+            font-weight: 500;
+            font-size: var(--text-body);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        .search-btn:hover {
+            background: var(--color-primary);
+        }
+
+        /* Therapists Grid (Reused but adapted) */
+        .therapists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+        .therapist-card {
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            background: var(--color-white);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+        .therapist-img-container {
+            height: 350px;
+            overflow: hidden;
+        }
+        .therapist-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-normal);
+        }
+        .therapist-info {
+            padding: 24px;
+            background: var(--color-white);
+            transition: transform var(--transition-normal);
+        }
+        .therapist-card:hover .therapist-img {
+            transform: scale(1.06);
+        }
+        .therapist-card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Section 08 - Final CTA */
+        .final-cta {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: var(--color-primary);
+            color: var(--color-secondary);
+            border-radius: 40px;
+            margin: 40px var(--section-padding-x);
+            padding: 80px 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/Brand-logo.webp" alt="STACKLY Wellness">
+            </a>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="About.html" class="nav-link">About</a>
+                <a href="Services.html" class="nav-link">Services</a>
+                <a href="Therapists.html" class="nav-link active">Therapists</a>
+                <a href="Resources.html" class="nav-link">Resources</a>
+                <a href="Contact.html" class="nav-link">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="Login.html" class="btn btn-primary" style="padding: 10px 24px; font-size: 14px;">Login</a>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="page-hero">
+        <img src="assets/hero-cover-Therapists-page.webp" alt="Therapists Hero" class="page-hero-bg">
+        <div class="page-hero-overlay"></div>
+        <div class="container container-narrow">
+            <h1 class="hero-text">Meet Our Therapists</h1>
+            <p style="font-size: 24px;">Find the right specialist who truly understands you and your journey.</p>
+        </div>
+    </header>
+
+    <!-- Section 01: Therapist Introduction & Section 02: Search -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <!-- Section 02: Therapist Search -->
+            <form class="search-container" action="404.html">
+                <div class="search-field">
+                    <select>
+                        <option value="">Specialization</option>
+                        <option value="anxiety">Anxiety & Stress</option>
+                        <option value="depression">Depression</option>
+                        <option value="relationships">Relationships</option>
+                        <option value="family">Family Therapy</option>
+                    </select>
+                </div>
+                <div class="search-field">
+                    <select>
+                        <option value="">Session Type</option>
+                        <option value="inperson">In-Person</option>
+                        <option value="online">Online</option>
+                    </select>
+                </div>
+                <div class="search-field">
+                    <select>
+                        <option value="">Availability</option>
+                        <option value="this-week">This Week</option>
+                        <option value="next-week">Next Week</option>
+                        <option value="flexible">Flexible</option>
+                    </select>
+                </div>
+                <button type="submit" class="search-btn">Search Therapists</button>
+            </form>
+
+            <div style="margin-top: 80px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;">
+                <h2>Expertise meets empathy</h2>
+                <p>Every therapist at STACKLY Wellness is fully licensed and highly experienced. Beyond their credentials, they are chosen for their warmth, empathy, and commitment to creating a safe environment for your growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 03: Featured Specialists -->
+    <section class="section section-secondary">
+        <div class="container">
+            <h2 class="text-center">Featured Specialists</h2>
+            <div class="therapists-grid">
+                <!-- Dr. Maya Carter -->
+                <div class="therapist-card">
+                    <div class="therapist-img-container">
+                        <img src="assets/Practice-Yoga.webp" alt="Dr. Maya Carter" class="therapist-img">
+                    </div>
+                    <div class="therapist-info">
+                        <h3>Dr. Maya Carter</h3>
+                        <p style="color: var(--color-accent); font-weight: 500; margin-bottom: 8px;">Clinical Psychology</p>
+                        <p class="text-small">12+ years experience. Specializes in complex trauma and anxiety disorders using integrative approaches.</p>
+                        <a href="404.html" style="font-weight: 500; margin-top: 16px; display: inline-block;">View Profile &rarr;</a>
+                    </div>
+                </div>
+                <!-- Dr. Ethan Brooks -->
+                <div class="therapist-card">
+                    <div class="therapist-img-container">
+                        <img src="assets/Cooking-for-recover-deppression.webp" alt="Dr. Ethan Brooks" class="therapist-img">
+                    </div>
+                    <div class="therapist-info">
+                        <h3>Dr. Ethan Brooks</h3>
+                        <p style="color: var(--color-accent); font-weight: 500; margin-bottom: 8px;">Anxiety & Stress</p>
+                        <p class="text-small">8+ years experience. Focuses on burnout recovery, chronic stress, and building resilience in high-pressure careers.</p>
+                        <a href="404.html" style="font-weight: 500; margin-top: 16px; display: inline-block;">View Profile &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 04: Clinical Specializations -->
+    <section class="section">
+        <div class="container text-center">
+            <h2>Clinical Specializations</h2>
+            <p style="margin-bottom: 40px;">Our team covers a wide spectrum of mental health needs.</p>
+            
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;">
+                <span style="background: var(--color-white); padding: 12px 24px; border-radius: 30px; border: 1px solid var(--color-primary);">Cognitive Behavioral Therapy (CBT)</span>
+                <span style="background: var(--color-white); padding: 12px 24px; border-radius: 30px; border: 1px solid var(--color-primary);">Dialectical Behavior Therapy (DBT)</span>
+                <span style="background: var(--color-white); padding: 12px 24px; border-radius: 30px; border: 1px solid var(--color-primary);">EMDR</span>
+                <span style="background: var(--color-white); padding: 12px 24px; border-radius: 30px; border: 1px solid var(--color-primary);">Gottman Method (Couples)</span>
+                <span style="background: var(--color-white); padding: 12px 24px; border-radius: 30px; border: 1px solid var(--color-primary);">Psychodynamic Therapy</span>
+                <span style="background: var(--color-white); padding: 12px 24px; border-radius: 30px; border: 1px solid var(--color-primary);">Mindfulness-Based Therapy</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 05: Therapist Approach -->
+    <section class="section section-secondary">
+        <div class="container" style="display: flex; gap: 60px; align-items: center; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <img src="assets/Socializing.webp" alt="Therapist Approach" style="width: 100%; border-radius: var(--border-radius-lg);">
+            </div>
+            <div style="flex: 1; min-width: 300px;">
+                <h2>How Different Approaches Work</h2>
+                <p>Not every approach works for every person. That's why our therapists often blend methods to suit your specific needs.</p>
+                <div style="margin-top: 24px;">
+                    <h4 style="color: var(--color-accent); margin-bottom: 4px;">CBT (Cognitive Behavioral Therapy)</h4>
+                    <p class="text-small">Focuses on identifying and changing negative thought patterns to influence behavior and emotions.</p>
+                    
+                    <h4 style="color: var(--color-accent); margin-bottom: 4px; margin-top: 16px;">Psychodynamic</h4>
+                    <p class="text-small">Explores how past experiences and unconscious thoughts influence current behavior.</p>
+                    
+                    <h4 style="color: var(--color-accent); margin-bottom: 4px; margin-top: 16px;">Mindfulness-Based</h4>
+                    <p class="text-small">Uses meditation and mindfulness techniques to help you stay grounded in the present moment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 06: Meet the Team (Grid) -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center">Meet the Rest of the Team</h2>
+            <div class="therapists-grid">
+                <!-- Dr. Sophia Reed -->
+                <div class="therapist-card">
+                    <div class="therapist-img-container">
+                        <img src="assets/Socializing-for-recover-deppression.webp" alt="Dr. Sophia Reed" class="therapist-img">
+                    </div>
+                    <div class="therapist-info">
+                        <h3>Dr. Sophia Reed</h3>
+                        <p style="color: var(--color-accent); font-weight: 500; margin-bottom: 8px;">Relationships</p>
+                        <p class="text-small">10+ years experience</p>
+                        <a href="404.html" style="font-weight: 500; margin-top: 16px; display: inline-block;">View Profile &rarr;</a>
+                    </div>
+                </div>
+                <!-- Dr. Daniel Morgan -->
+                <div class="therapist-card">
+                    <div class="therapist-img-container">
+                        <img src="assets/Spots-for-recover-deppression.webp" alt="Dr. Daniel Morgan" class="therapist-img">
+                    </div>
+                    <div class="therapist-info">
+                        <h3>Dr. Daniel Morgan</h3>
+                        <p style="color: var(--color-accent); font-weight: 500; margin-bottom: 8px;">Family Therapy</p>
+                        <p class="text-small">15+ years experience</p>
+                        <a href="404.html" style="font-weight: 500; margin-top: 16px; display: inline-block;">View Profile &rarr;</a>
+                    </div>
+                </div>
+                <!-- Adding a couple more placeholders using available images -->
+                <div class="therapist-card">
+                    <div class="therapist-img-container">
+                        <img src="assets/Runnig-recover-deppression.webp" alt="Sarah Jenkins" class="therapist-img">
+                    </div>
+                    <div class="therapist-info">
+                        <h3>Sarah Jenkins, LPC</h3>
+                        <p style="color: var(--color-accent); font-weight: 500; margin-bottom: 8px;">Life Transitions</p>
+                        <p class="text-small">7+ years experience</p>
+                        <a href="404.html" style="font-weight: 500; margin-top: 16px; display: inline-block;">View Profile &rarr;</a>
+                    </div>
+                </div>
+                <div class="therapist-card">
+                    <div class="therapist-img-container">
+                        <img src="assets/Wating-Movie-for-recover-deppression.webp" alt="Michael Chang" class="therapist-img">
+                    </div>
+                    <div class="therapist-info">
+                        <h3>Michael Chang, LCSW</h3>
+                        <p style="color: var(--color-accent); font-weight: 500; margin-bottom: 8px;">Depression Support</p>
+                        <p class="text-small">9+ years experience</p>
+                        <a href="404.html" style="font-weight: 500; margin-top: 16px; display: inline-block;">View Profile &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 07: Choosing the Right Therapist -->
+    <section class="section section-secondary">
+        <div class="container text-center container-narrow">
+            <h2>Choosing the Right Therapist</h2>
+            <p>Research shows that the relationship between you and your therapist is the most important factor in the success of your therapy. It's perfectly okay to ask questions during your first session to ensure they are the right fit for you. If they aren't, we'll gladly help you find someone else on our team.</p>
+        </div>
+    </section>
+
+    <!-- Section 08: Final CTA -->
+    <section class="section" style="padding-bottom: 120px;">
+        <div class="final-cta">
+            <div style="max-width: 600px;">
+                <h2 style="color: var(--color-secondary);">Find Your Therapist Today</h2>
+                <p style="color: rgba(248, 245, 239, 0.8); margin-bottom: 40px;">Take the next step in your mental health journey by booking a session with one of our specialists.</p>
+                <a href="Contact.html" class="btn" style="background: var(--color-white); color: var(--color-primary);">Book a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/Brand-logo.webp" alt="STACKLY Wellness">
+                    <p>Compassionate mental health support designed around your needs, your pace, and your journey.</p>
+                    <div class="footer-social">
+                        <a href="404.html"><i class="fab fa-instagram"></i></a>
+                        <a href="404.html"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="About.html">About</a></li>
+                        <li><a href="Services.html">Services</a></li>
+                        <li><a href="Therapists.html">Therapists</a></li>
+                        <li><a href="Resources.html">Resources</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="404.html">Individual Therapy</a></li>
+                        <li><a href="404.html">Couples Therapy</a></li>
+                        <li><a href="404.html">Family Therapy</a></li>
+                        <li><a href="404.html">Online Therapy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="Contact.html">Contact Us</a></li>
+                        <li><a href="404.html">FAQ</a></li>
+                        <li><a href="404.html">Crisis Resources</a></li>
+                        <li><a href="404.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 STACKLY Wellness. All rights reserved.</p>
+                <div style="display: flex; gap: 24px;">
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/forms.js"></script>
+</body>
+</html>

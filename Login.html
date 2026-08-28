@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - STACKLY Wellness</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, rgba(248,245,239,1) 0%, rgba(216,164,143,0.1) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .back-link {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            font-weight: 600;
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 10;
+        }
+        .brand-logo {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            height: 30px;
+            z-index: 10;
+        }
+        .auth-card {
+            background: var(--color-white);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 480px;
+            padding: 48px;
+            position: relative;
+            z-index: 2;
+        }
+        .auth-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .auth-header h1 {
+            font-size: 32px;
+            color: var(--color-black);
+            margin-bottom: 8px;
+        }
+        .auth-header p {
+            color: #888;
+            font-size: 14px;
+        }
+        .input-group {
+            margin-bottom: 24px;
+            position: relative;
+        }
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .input-wrapper i {
+            position: absolute;
+            left: 16px;
+            color: #aaa;
+        }
+        .input-wrapper .toggle-pwd {
+            left: auto;
+            right: 16px;
+            cursor: pointer;
+        }
+        .form-control {
+            width: 100%;
+            padding: 14px 14px 14px 44px;
+            border: 1px solid #eaeaea;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #333;
+            background: #fff;
+            transition: all 0.2s ease;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(49, 92, 85, 0.1);
+        }
+        .select-wrapper {
+            position: relative;
+        }
+        .select-wrapper::after {
+            content: '\f107';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+            pointer-events: none;
+        }
+        select.form-control {
+            appearance: none;
+        }
+        
+        .forgot-pwd {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 12px;
+            font-weight: 600;
+            color: #2e8b57;
+            text-decoration: none;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 16px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.2s ease;
+        }
+        .btn-submit:hover {
+            background: #222;
+        }
+        
+        .auth-footer {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 14px;
+            color: #888;
+        }
+        .auth-footer a {
+            color: #000;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* Abstract shapes */
+        .shape-1 {
+            position: absolute;
+            bottom: -20vh;
+            left: -10vw;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(49,92,85,0.05) 0%, rgba(49,92,85,0) 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .shape-2 {
+            position: absolute;
+            top: -10vh;
+            right: -10vw;
+            width: 40vw;
+            height: 40vw;
+            background: radial-gradient(circle, rgba(216,164,143,0.15) 0%, rgba(216,164,143,0) 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .auth-card {
+                padding: 32px 24px;
+                margin: 0 20px;
+            }
+            .brand-logo {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="shape-1"></div>
+    <div class="shape-2"></div>
+
+    <a href="index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+    <img src="assets/Brand-logo.webp" alt="STACKLY Wellness" class="brand-logo">
+
+    <div class="auth-card gsap-reveal" id="loginCard">
+        <div class="auth-header">
+            <h1>Welcome Back</h1>
+            <p>Sign in to your account</p>
+        </div>
+
+        <form id="loginForm">
+            <div class="input-group">
+                <label>Login As</label>
+                <div class="input-wrapper select-wrapper">
+                    <i class="fas fa-user"></i>
+                    <select id="loginAs" class="form-control">
+                        <option value="Client">Client</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" class="form-control" placeholder="user@example.com" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <a href="404.html" class="forgot-pwd">Forgot password?</a>
+                <div class="input-wrapper">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+                    <i class="fas fa-eye toggle-pwd"></i>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Login</button>
+        </form>
+
+        <div class="auth-footer">
+            Don't have an account? <a href="Signup.html">Create an account</a>
+        </div>
+    </div>
+
+    <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="js/forms.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // GSAP Entrance
+            gsap.fromTo('#loginCard', 
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+            );
+
+            // Toggle Password visibility
+            const togglePwd = document.querySelector('.toggle-pwd');
+            const pwdInput = document.getElementById('password');
+            if (togglePwd && pwdInput) {
+                togglePwd.addEventListener('click', () => {
+                    const type = pwdInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    pwdInput.setAttribute('type', type);
+                    togglePwd.classList.toggle('fa-eye');
+                    togglePwd.classList.toggle('fa-eye-slash');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

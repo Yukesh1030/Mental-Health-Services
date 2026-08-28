@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - STACKLY Wellness</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background-color: var(--color-secondary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .not-found-container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            padding: 0 20px;
+        }
+
+        .error-code {
+            font-size: clamp(100px, 20vw, 200px);
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1;
+            margin-bottom: 24px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .error-message {
+            font-size: var(--text-h3);
+            color: var(--color-text-dark);
+            margin-bottom: 16px;
+        }
+
+        .error-description {
+            font-size: var(--text-body);
+            color: var(--color-text-light);
+            max-width: 500px;
+            margin: 0 auto 40px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Abstract Organic Shapes for GSAP Animation */
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        .shape-1 {
+            width: 50vw;
+            height: 50vw;
+            background: var(--color-accent);
+            top: -20vh;
+            left: -10vw;
+        }
+
+        .shape-2 {
+            width: 40vw;
+            height: 40vw;
+            background: var(--color-primary);
+            bottom: -10vh;
+            right: -10vw;
+            opacity: 0.15;
+        }
+
+        .shape-3 {
+            width: 30vw;
+            height: 30vw;
+            background: #e8d5c4;
+            top: 40vh;
+            left: 30vw;
+            opacity: 0.5;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Organic Background Shapes -->
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+
+    <div class="not-found-container">
+        <div class="error-code">404</div>
+        <h1 class="error-message">Looks like you've wandered off the path.</h1>
+        <p class="error-description">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. Let's get you back to a familiar space.</p>
+        
+        <div class="action-buttons">
+            <button onclick="window.history.back()" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Go Back
+            </button>
+            <a href="index.html" class="btn btn-primary">
+                Back to Home <i class="fas fa-home"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Entrance Animation
+            const tl = gsap.timeline();
+            
+            tl.from('.error-code', { 
+                y: -50, 
+                opacity: 0, 
+                duration: 1, 
+                ease: "bounce.out" 
+            })
+            .from('.error-message', { 
+                y: 20, 
+                opacity: 0, 
+                duration: 0.8, 
+                ease: "power2.out" 
+            }, "-=0.4")
+            .from('.error-description', { 
+                y: 20, 
+                opacity: 0, 
+                duration: 0.8, 
+                ease: "power2.out" 
+            }, "-=0.6")
+            .from('.action-buttons', { 
+                y: 20, 
+                opacity: 0, 
+                duration: 0.8, 
+                ease: "power2.out" 
+            }, "-=0.6");
+
+            // Floating Background Shapes Animation
+            gsap.to('.shape-1', {
+                x: 100,
+                y: 50,
+                duration: 8,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            });
+
+            gsap.to('.shape-2', {
+                x: -150,
+                y: -100,
+                duration: 12,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            });
+
+            gsap.to('.shape-3', {
+                x: 50,
+                y: -50,
+                scale: 1.2,
+                duration: 10,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            });
+        });
+    </script>
+</body>
+</html>

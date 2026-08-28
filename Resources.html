@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - STACKLY Wellness</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-white);
+            margin-bottom: 60px;
+        }
+        .page-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+        .page-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(49, 92, 85, 0.7);
+            z-index: -1;
+        }
+        .page-hero h1 {
+            color: var(--color-white);
+        }
+        .page-hero p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Article Cards */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .article-card {
+            display: block;
+            background: var(--color-white);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+            text-decoration: none;
+            color: var(--color-text-dark);
+        }
+        .article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            color: var(--color-text-dark);
+        }
+        .article-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+        .article-content {
+            padding: 32px;
+        }
+        .article-category {
+            font-size: var(--text-small);
+            font-weight: 600;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .article-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        /* Featured Article */
+        .featured-article {
+            display: flex;
+            background: var(--color-white);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 80px;
+            text-decoration: none;
+            color: var(--color-text-dark);
+        }
+        .featured-article:hover {
+            color: var(--color-text-dark);
+        }
+        .featured-img {
+            flex: 1.5;
+            min-width: 300px;
+        }
+        .featured-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .featured-content {
+            flex: 1;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Section 07 - FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: var(--color-white);
+            margin-bottom: 16px;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .faq-head {
+            padding: 24px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 18px;
+        }
+        .faq-body {
+            height: 0;
+            opacity: 0;
+            padding: 0 32px;
+            overflow: hidden;
+        }
+        .faq-item.open .faq-body {
+            padding-bottom: 24px;
+        }
+
+        /* Section 08 - Newsletter */
+        .newsletter-section {
+            background: var(--color-primary);
+            color: var(--color-secondary);
+            text-align: center;
+            padding: 100px 20px;
+            border-radius: 40px;
+            margin: 40px var(--section-padding-x);
+        }
+        .newsletter-form {
+            max-width: 500px;
+            margin: 40px auto 0;
+            display: flex;
+            gap: 16px;
+        }
+        .newsletter-input {
+            flex: 1;
+            padding: 16px 24px;
+            border-radius: var(--border-radius-pill);
+            border: none;
+            font-family: var(--font-family);
+            font-size: var(--text-body);
+        }
+
+        @media (max-width: 768px) {
+            .featured-article {
+                flex-direction: column;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/Brand-logo.webp" alt="STACKLY Wellness">
+            </a>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="About.html" class="nav-link">About</a>
+                <a href="Services.html" class="nav-link">Services</a>
+                <a href="Therapists.html" class="nav-link">Therapists</a>
+                <a href="Resources.html" class="nav-link active">Resources</a>
+                <a href="Contact.html" class="nav-link">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="Login.html" class="btn btn-primary" style="padding: 10px 24px; font-size: 14px;">Login</a>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="page-hero">
+        <img src="assets/hero-cover-Resoures-page.webp" alt="Resources Hero" class="page-hero-bg">
+        <div class="page-hero-overlay"></div>
+        <div class="container container-narrow">
+            <h1 class="hero-text">Your Mental Wellness Toolkit</h1>
+            <p style="font-size: 24px;">Articles, guides, and exercises to support your journey outside the therapy room.</p>
+        </div>
+    </header>
+
+    <!-- Section 01: Featured Resource -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <a href="404.html" class="featured-article">
+                <div class="featured-img">
+                    <img src="assets/Socializing-for-recover-deppression.webp" alt="Featured Article">
+                </div>
+                <div class="featured-content">
+                    <span class="article-category">Featured Editorial</span>
+                    <h2 style="font-size: 36px; margin-bottom: 24px;">The Myth of Perfect Balance: Reclaiming Your Energy in a Busy World</h2>
+                    <p style="color: var(--color-text-light);">We're often told that achieving perfect balance is the key to happiness. But what if the pursuit of balance is actually causing more stress? Learn how to embrace rhythm instead of balance.</p>
+                    <span style="font-weight: 500; color: var(--color-accent); margin-top: 24px;">Read Full Article &rarr;</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Section 02: Mental Health Guides -->
+    <section class="section section-secondary">
+        <div class="container">
+            <h2>Comprehensive Guides</h2>
+            <div class="article-grid">
+                <a href="404.html" class="article-card">
+                    <img src="assets/Exploring-Nature-for-recover-deppression.webp" class="article-img" alt="Guide 1">
+                    <div class="article-content">
+                        <span class="article-category">Guide</span>
+                        <h3 class="article-title">A Beginner's Guide to Starting Therapy</h3>
+                        <p class="text-small">Everything you need to know about taking that crucial first step.</p>
+                    </div>
+                </a>
+                <a href="404.html" class="article-card">
+                    <img src="assets/Practice-Yoga.webp" class="article-img" alt="Guide 2">
+                    <div class="article-content">
+                        <span class="article-category">Guide</span>
+                        <h3 class="article-title">Understanding Your Nervous System</h3>
+                        <p class="text-small">How somatic experiencing can help you process trauma physically.</p>
+                    </div>
+                </a>
+                <a href="404.html" class="article-card">
+                    <img src="assets/Cooking-for-recover-deppression.webp" class="article-img" alt="Guide 3">
+                    <div class="article-content">
+                        <span class="article-category">Guide</span>
+                        <h3 class="article-title">The Art of Setting Boundaries</h3>
+                        <p class="text-small">Scripts and strategies for protecting your peace in difficult relationships.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 03: Anxiety & Stress -->
+    <section class="section">
+        <div class="container">
+            <h2>Anxiety & Stress</h2>
+            <div class="article-grid">
+                <a href="404.html" class="article-card">
+                    <img src="assets/Runnig-recover-deppression.webp" class="article-img" alt="Anxiety 1">
+                    <div class="article-content">
+                        <span class="article-category">Exercise</span>
+                        <h3 class="article-title">5-4-3-2-1 Grounding Technique</h3>
+                        <p class="text-small">A quick exercise to bring you back to the present moment during a panic attack.</p>
+                    </div>
+                </a>
+                <a href="404.html" class="article-card">
+                    <img src="assets/Socializing.webp" class="article-img" alt="Anxiety 2">
+                    <div class="article-content">
+                        <span class="article-category">Article</span>
+                        <h3 class="article-title">High-Functioning Anxiety Explained</h3>
+                        <p class="text-small">Why you might look successful on the outside but feel overwhelmed inside.</p>
+                    </div>
+                </a>
+                <a href="404.html" class="article-card">
+                    <img src="assets/Spots-for-recover-deppression.webp" class="article-img" alt="Anxiety 3">
+                    <div class="article-content">
+                        <span class="article-category">Journal Prompt</span>
+                        <h3 class="article-title">Deconstructing Your Worries</h3>
+                        <p class="text-small">A worksheet for challenging catastrophic thinking patterns.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 04: Relationships -->
+    <section class="section section-secondary">
+        <div class="container">
+            <h2>Relationships & Connection</h2>
+            <div class="article-grid">
+                <a href="404.html" class="article-card">
+                    <img src="assets/Games-for-recover-deppression.webp" class="article-img" alt="Relationships 1">
+                    <div class="article-content">
+                        <span class="article-category">Article</span>
+                        <h3 class="article-title">Attachment Styles and How They Shape Us</h3>
+                        <p class="text-small">Understanding anxious, avoidant, and secure attachment.</p>
+                    </div>
+                </a>
+                <a href="404.html" class="article-card">
+                    <img src="assets/Socializing-for-recover-deppression.webp" class="article-img" alt="Relationships 2">
+                    <div class="article-content">
+                        <span class="article-category">Guide</span>
+                        <h3 class="article-title">Navigating Conflict Constructively</h3>
+                        <p class="text-small">How to fight fair and use disagreements to build intimacy.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 05: Sleep & Rest -->
+    <section class="section">
+        <div class="container">
+            <h2>Sleep & Rest</h2>
+            <div class="article-grid">
+                <a href="404.html" class="article-card">
+                    <img src="assets/Sleeping-for-recover-deppression.webp" class="article-img" alt="Sleep 1">
+                    <div class="article-content">
+                        <span class="article-category">Routine</span>
+                        <h3 class="article-title">Building a Better Wind-Down Routine</h3>
+                        <p class="text-small">Steps to signal to your brain that it's time to sleep.</p>
+                    </div>
+                </a>
+                <a href="404.html" class="article-card">
+                    <img src="assets/Wating-Movie-for-recover-deppression.webp" class="article-img" alt="Sleep 2">
+                    <div class="article-content">
+                        <span class="article-category">Audio</span>
+                        <h3 class="article-title">Guided Sleep Meditation (15 Min)</h3>
+                        <p class="text-small">A gentle body scan to help release physical tension before bed.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 06: Self-Care -->
+    <section class="section section-secondary">
+        <div class="container">
+            <h2>Everyday Self-Care</h2>
+            <div class="article-grid">
+                <a href="404.html" class="article-card">
+                    <img src="assets/Cooking-for-recover-deppression.webp" class="article-img" alt="Self-Care 1">
+                    <div class="article-content">
+                        <span class="article-category">Article</span>
+                        <h3 class="article-title">Cooking as Mindfulness</h3>
+                        <p class="text-small">Finding peace in the everyday rhythm of preparing a meal.</p>
+                    </div>
+                </a>
+                <a href="404.html" class="article-card">
+                    <img src="assets/Exploring-Nature-for-recover-deppression.webp" class="article-img" alt="Self-Care 2">
+                    <div class="article-content">
+                        <span class="article-category">Practice</span>
+                        <h3 class="article-title">The Benefits of Eco-Therapy</h3>
+                        <p class="text-small">Why spending time in nature is scientifically proven to lower stress.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 07: FAQ -->
+    <section class="section">
+        <div class="container container-narrow">
+            <h2 class="text-center" style="margin-bottom: 40px;">Resource FAQ</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-head">
+                        Are these resources a substitute for therapy?
+                        <i class="material-icons faq-icon">add</i>
+                    </div>
+                    <div class="faq-body">
+                        <p>No. These articles and guides are meant to be educational tools to supplement your mental health journey. They are not a replacement for professional medical advice, diagnosis, or treatment.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-head">
+                        Who writes these articles?
+                        <i class="material-icons faq-icon">add</i>
+                    </div>
+                    <div class="faq-body">
+                        <p>All of our content is written or medically reviewed by licensed therapists and clinical psychologists on the STACKLY Wellness team.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-head">
+                        Can I share these resources with someone else?
+                        <i class="material-icons faq-icon">add</i>
+                    </div>
+                    <div class="faq-body">
+                        <p>Absolutely. If you think a guide or article could help a friend or family member, we encourage you to share it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 08: Newsletter -->
+    <section class="section" style="padding-bottom: 80px; padding-top: 0;">
+        <div class="newsletter-section">
+            <h2 style="color: var(--color-secondary);">Mental Wellness in Your Inbox</h2>
+            <p style="color: rgba(248, 245, 239, 0.8);">Get a thoughtful collection of mental health insights and coping strategies sent to you every month. No spam, ever.</p>
+            
+            <form id="contactForm" class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                <button type="submit" class="btn" style="background: var(--color-accent); color: var(--color-white);">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/Brand-logo.webp" alt="STACKLY Wellness">
+                    <p>Compassionate mental health support designed around your needs, your pace, and your journey.</p>
+                    <div class="footer-social">
+                        <a href="404.html"><i class="fab fa-instagram"></i></a>
+                        <a href="404.html"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="About.html">About</a></li>
+                        <li><a href="Services.html">Services</a></li>
+                        <li><a href="Therapists.html">Therapists</a></li>
+                        <li><a href="Resources.html">Resources</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="404.html">Individual Therapy</a></li>
+                        <li><a href="404.html">Couples Therapy</a></li>
+                        <li><a href="404.html">Family Therapy</a></li>
+                        <li><a href="404.html">Online Therapy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="Contact.html">Contact Us</a></li>
+                        <li><a href="404.html">FAQ</a></li>
+                        <li><a href="404.html">Crisis Resources</a></li>
+                        <li><a href="404.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 STACKLY Wellness. All rights reserved.</p>
+                <div style="display: flex; gap: 24px;">
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/forms.js"></script>
+</body>
+</html>
