@@ -252,8 +252,7 @@
     *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
   }
 </style>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/><style>  .nav-item i.fas { font-size: 1.1rem; width: 18px; text-align: center; opacity: 0.85; flex-shrink: 0; }</style><script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/><style>  .nav-item i.fas { font-size: 1.1rem; width: 18px; text-align: center; opacity: 0.85; flex-shrink: 0; }</style></head>
 <body>
 <div class="app">
 <div class="overlay" id="overlay"></div>
@@ -294,49 +293,21 @@
 </div>
 <main class="view-wrap">
 <!-- ===== OVERVIEW ===== -->
-<section class="view active" data-view-content="overview">
-<div class="hero">
-<div class="hero-text" data-aos="fade-right">
-<p class="eyebrow">Thursday, September 3</p>
-<h1>Good evening,<br/><span class="accent-text">Asha</span>.</h1>
-<p class="hero-sub">You've shown up for yourself twelve days running. Take a slow minute before your next session — the ring is here whenever you need it.</p>
-</div>
-<div class="breathing-card" data-aos="fade-left">
-<div class="breath-ring"><div class="breath-circle" id="breathCircle"></div><span id="breathLabel">Breathe In</span></div>
-<p class="breath-caption">A minute for yourself, before the day asks for more.</p>
-</div>
-</div>
-<div class="stats-row">
-<div class="stat-card" data-aos="fade-up" data-aos-delay="0"><div class="val"><span class="count" data-target="12">0</span></div><div class="label">Day mindful streak</div></div>
-<div class="stat-card" data-aos="fade-up" data-aos-delay="80"><div class="val"><span class="count" data-target="24">0</span></div><div class="label">Sessions completed</div></div>
-<div class="stat-card" data-aos="fade-up" data-aos-delay="160"><div class="val"><span class="count" data-target="145">0</span><span class="unit">min</span></div><div class="label">Mindful minutes this week</div></div>
-<div class="stat-card" data-aos="fade-up" data-aos-delay="240"><div class="val"><span class="count" data-decimal="1" data-target="7.2">0</span><span class="unit">/10</span></div><div class="label">Average mood this week</div></div>
-</div>
-<div class="grid-2">
+<section class="view" data-view-content="settings">
+<div class="panel-head" data-aos="fade-up"><h1 style="font-size:1.7rem;">Settings</h1></div>
+<div class="settings-grid">
 <div class="panel" data-aos="fade-up">
-<h2>This week's mood</h2>
-<div style="height: 160px; margin-bottom: 20px;"><canvas id="moodChartCanvas"></canvas></div>
-<p style="margin-bottom:10px; font-size:0.85rem; font-weight:600; color:var(--ink);">How are you, right now?</p>
-<div class="mood-picker">
-<button class="mood-btn" data-mood="Low">😔</button>
-<button class="mood-btn" data-mood="Uneasy">😕</button>
-<button class="mood-btn selected" data-mood="Okay">🙂</button>
-<button class="mood-btn" data-mood="Good">😊</button>
-<button class="mood-btn" data-mood="Great">😄</button>
-</div>
+<h2>Profile</h2>
+<div class="form-row"><label>Full name</label><input type="text" value="Asha Verma"/></div>
+<div class="form-row"><label>Email</label><input type="text" value="asha.verma@email.com"/></div>
+<div class="form-row"><label>Preferred therapist</label><input type="text" value="Dr. Meera Nair"/></div>
+<button class="btn" onclick="window.location.href='404.html';">Save changes</button>
 </div>
 <div class="panel" data-aos="fade-up" data-aos-delay="100">
-<h2>Upcoming session</h2>
-<div class="session-card">
-<div class="who">
-<div class="initials">MN</div>
-<div><p style="font-weight:600; color:var(--ink);">Dr. Meera Nair</p><p style="font-size:0.8rem;">Cognitive Behavioural Therapy</p></div>
-</div>
-<p class="when mono">Thu, Sep 3 · 4:00 PM · Video call</p>
-<button class="btn" onclick="window.location.href='404.html';">Join session</button>
-</div>
-<h2 style="font-size:1.05rem;">Journal streak</h2>
-<div class="journal-streak"><p style="font-size:0.85rem;">Entries this month</p><div class="num mono">9</div></div>
+<h2>Notifications</h2>
+<div class="toggle-row"><div><p>Session reminders</p><p>Get notified an hour before each session.</p></div><div class="switch on"></div></div>
+<div class="toggle-row"><div><p>Daily check-in nudge</p><p>A gentle reminder to log your mood.</p></div><div class="switch on"></div></div>
+<div class="toggle-row"><div><p>New resources</p><p>Hear about newly added guided practices.</p></div><div class="switch"></div></div>
 </div>
 </div>
 </section>
@@ -375,46 +346,6 @@
       .to(circle, { duration: 2 });
   }
 
-  
-  /* ---------- Chart.js Mood Chart ---------- */
-  const moodCtx = document.getElementById('moodChartCanvas');
-  if (moodCtx) {
-    new Chart(moodCtx, {
-      type: 'line',
-      data: {
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        datasets: [{
-          label: 'Mood Level',
-          data: [6, 7, 5, 8, 7, 9, 7.2],
-          borderColor: '#E8846B',
-          backgroundColor: 'rgba(232, 132, 107, 0.15)',
-          borderWidth: 3,
-          pointBackgroundColor: '#E8846B',
-          pointRadius: 4,
-          fill: true,
-          tension: 0.4
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false }
-        },
-        scales: {
-          y: {
-            display: false,
-            min: 0,
-            max: 10
-          },
-          x: {
-            grid: { display: false, drawBorder: false }
-          }
-        }
-      }
-    });
-  }
-
   /* ---------- Count-up stats ---------- */
   function animateCounts(scope){
     (scope || document).querySelectorAll('.count').forEach(el => {
@@ -427,7 +358,15 @@
   }
   animateCounts();
 
-  
+  /* ---------- Mood chart grow-in ---------- */
+  function animateMoodChart(){
+    gsap.utils.toArray('.mood-bar .bar').forEach((bar, i) => {
+      const h = bar.parentElement.style.getPropertyValue('--h');
+      gsap.set(bar, { height: h, scaleY: 0 });
+      gsap.to(bar, { scaleY: 1, duration: 0.8, delay: 0.15 + i * 0.07, ease: 'back.out(1.6)' });
+    });
+  }
+  animateMoodChart();
 
   document.querySelectorAll('.mood-btn').forEach(btn => {
     btn.addEventListener('click', () => {
