@@ -266,7 +266,7 @@
 <img alt="Haven Logo" src="assets/Brand-logo.webp" style="height: 32px; width: auto;"/>
 </a>
 <button aria-label="Close menu" class="sidebar-close" id="sidebarClose">
-<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16"><path d="M18 6 6 18M6 6l12 12"></path></svg>
 </button>
 </div>
 <nav class="nav-group" id="navGroup">
@@ -289,7 +289,7 @@
       </a>
 <a class="nav-item" data-view="alerts" href="admin-alerts.html">
 <i class="fas fa-exclamation-triangle"></i>
-        Alerts <span class="badge">5</span>
+        Alerts 
 </a>
 <a class="nav-item" data-view="settings" href="admin-settings.html">
 <i class="fas fa-cog"></i>
@@ -314,12 +314,12 @@
 </a>
 </div>
 <div class="search">
-<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
 <form action="404.html" method="GET" style="display:inline-block; width:100%; max-width:400px; margin:0;"><input placeholder="Search clients, therapists, sessions…" required="" type="text"/></form>
 </div>
 <div class="topbar-right">
 <div class="bell"><i class="fas fa-bell" style="font-size: 1.2rem;"></i><span class="dot"></span></div>
-<div class="admin-id"><div class="avatar">RI</div><div class="txt"><p>Dr. Rohan Iyer</p><p>Clinical Admin</p></div></div>
+<div class="admin-id"><div class="avatar" id="userAvatar">RI</div><div class="txt"><p id="userName">Dr. Rohan Iyer</p><p>Clinical Admin</p></div></div>
 </div>
 </div>
 <main class="view-wrap">
@@ -383,8 +383,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script>
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+<script>const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   AOS.init({ duration: 650, easing: 'ease-out-cubic', once: true, disable: reduceMotion });
   gsap.registerPlugin(ScrollTrigger);
 
@@ -537,6 +536,46 @@
   hamburger.addEventListener('click', openSidebar);
   sidebarClose.addEventListener('click', closeSidebar);
   overlay.addEventListener('click', closeSidebar);
+
+
+
 </script>
+
+<!-- Dynamic Profile Update -->
+<script>
+(function() {
+    function updateProfile() {
+        var user = localStorage.getItem('currentUser');
+        if (!user) user = 'Admin';
+        
+        // Format the name: replace dots/underscores with space and capitalize each word
+        var formatted = user.replace(/[._]/g, ' ').split(' ').map(function(word) {
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        }).join(' ');
+
+        // Get initials (up to 2 letters)
+        var initials = formatted.split(' ').map(function(w){return w[0];}).join('').substring(0, 2).toUpperCase();
+
+        var nameEl = document.getElementById('userName');
+        var avatarEl = document.getElementById('userAvatar');
+        
+        if (nameEl) nameEl.textContent = formatted;
+        if (avatarEl) avatarEl.textContent = initials;
+
+        document.querySelectorAll('h1').forEach(function(h1) {
+            if (h1.textContent.indexOf('Good morning') !== -1) {
+                h1.textContent = 'Good morning, ' + formatted + '.';
+            }
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateProfile);
+    } else {
+        updateProfile();
+    }
+})();
+</script>
+
 </body>
 </html>

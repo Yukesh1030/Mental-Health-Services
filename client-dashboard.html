@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Haven — Your Space</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.min.css" />
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.min.css" rel="stylesheet"/>
 <style>
   /* ===== Shared Haven theme tokens (identical across Client + Admin) ===== */
   :root{
@@ -251,228 +252,213 @@
     *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
   }
 </style>
-</head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/><style>  .nav-item i.fas { font-size: 1.1rem; width: 18px; text-align: center; opacity: 0.85; flex-shrink: 0; }</style></head>
 <body>
-
 <div class="app">
-  <div class="overlay" id="overlay"></div>
-
-  <aside class="sidebar" id="sidebar">
-    <div class="brand">
-      <svg viewBox="0 0 40 40" fill="none"><circle cx="16" cy="20" r="13" fill="#7C9B8E" opacity="0.7"/><circle cx="25" cy="17" r="11" fill="#E8846B" opacity="0.85"/></svg>
-      <div><span>Haven</span><small>Your space</small></div>
-      <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
-      </button>
-    </div>
-    <nav class="nav-group" id="navGroup">
-      <div class="nav-pill" id="navPill"></div>
-      <button class="nav-item active" data-view="overview">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>
+<div class="overlay" id="overlay"></div>
+<aside class="sidebar" id="sidebar">
+<div class="brand">
+<svg fill="none" viewBox="0 0 40 40"><circle cx="16" cy="20" fill="#7C9B8E" opacity="0.7" r="13"></circle><circle cx="25" cy="17" fill="#E8846B" opacity="0.85" r="11"></circle></svg>
+<div><span>Haven</span><small>Your space</small></div>
+<button aria-label="Close menu" class="sidebar-close" id="sidebarClose">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+</button>
+</div>
+<nav class="nav-group" id="navGroup">
+<div class="nav-pill" id="navPill"></div>
+<button class="nav-item active" data-view="overview">
+<i class="fas fa-home"></i>
         Overview
       </button>
-      <button class="nav-item" data-view="sessions">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+<button class="nav-item" data-view="sessions">
+<i class="fas fa-video"></i>
         Sessions
       </button>
-      <button class="nav-item" data-view="journal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>
+<button class="nav-item" data-view="journal">
+<i class="fas fa-book"></i>
         Journal
       </button>
-      <button class="nav-item" data-view="resources">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 20A7 7 0 0 1 4 13V5a1 1 0 0 1 1-1h2a7 7 0 0 1 7 7v9Z"/><path d="M11 20a7 7 0 0 1 7-7h2a1 1 0 0 1 1 1v1a7 7 0 0 1-7 7"/></svg>
+<button class="nav-item" data-view="resources">
+<i class="fas fa-heart"></i>
         Resources
       </button>
-      <button class="nav-item" data-view="settings">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg>
+<button class="nav-item" data-view="settings">
+<i class="fas fa-cog"></i>
         Settings
       </button>
-      <a href="Login.html" class="nav-item" style="text-decoration: none;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+<a class="nav-item" href="Login.html" style="text-decoration: none;">
+<i class="fas fa-sign-out-alt"></i>
         Logout
       </a>
-    </nav>
-    <div class="sidebar-footer">
-      <p><strong>🔥 12 day streak</strong><br>You're building a steady rhythm of care.</p>
-    </div>
-  </aside>
-
-  <div class="main">
-    <div class="topbar">
-      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span></button>
-      <div class="brand-mini">
-        <svg viewBox="0 0 40 40" fill="none"><circle cx="16" cy="20" r="13" fill="#7C9B8E" opacity="0.7"/><circle cx="25" cy="17" r="11" fill="#E8846B" opacity="0.85"/></svg>
-        <span>Haven</span>
-      </div>
-      <div class="search">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-        <input type="text" placeholder="Search sessions, entries, resources…" />
-      </div>
-      <div class="topbar-right">
-        <div class="streak-pill">🔥 <span class="txt">12 day streak</span></div>
-        <div class="avatar">AV</div>
-      </div>
-    </div>
-
-    <main class="view-wrap">
-
-      <!-- ===== OVERVIEW ===== -->
-      <section class="view active" data-view-content="overview">
-        <div class="hero">
-          <div class="hero-text" data-aos="fade-right">
-            <p class="eyebrow">Thursday, September 3</p>
-            <h1>Good evening,<br><span class="accent-text">Asha</span>.</h1>
-            <p class="hero-sub">You've shown up for yourself twelve days running. Take a slow minute before your next session — the ring is here whenever you need it.</p>
-          </div>
-          <div class="breathing-card" data-aos="fade-left">
-            <div class="breath-ring"><div class="breath-circle" id="breathCircle"></div><span id="breathLabel">Breathe In</span></div>
-            <p class="breath-caption">A minute for yourself, before the day asks for more.</p>
-          </div>
-        </div>
-
-        <div class="stats-row">
-          <div class="stat-card" data-aos="fade-up" data-aos-delay="0"><div class="val"><span class="count" data-target="12">0</span></div><div class="label">Day mindful streak</div></div>
-          <div class="stat-card" data-aos="fade-up" data-aos-delay="80"><div class="val"><span class="count" data-target="24">0</span></div><div class="label">Sessions completed</div></div>
-          <div class="stat-card" data-aos="fade-up" data-aos-delay="160"><div class="val"><span class="count" data-target="145">0</span><span class="unit">min</span></div><div class="label">Mindful minutes this week</div></div>
-          <div class="stat-card" data-aos="fade-up" data-aos-delay="240"><div class="val"><span class="count" data-target="7.2" data-decimal="1">0</span><span class="unit">/10</span></div><div class="label">Average mood this week</div></div>
-        </div>
-
-        <div class="grid-2">
-          <div class="panel" data-aos="fade-up">
-            <h2>This week's mood</h2>
-            <div class="mood-chart" id="moodChart">
-              <div class="mood-bar" style="--h:60%"><div class="bar"></div><span>Mon</span></div>
-              <div class="mood-bar" style="--h:70%"><div class="bar"></div><span>Tue</span></div>
-              <div class="mood-bar" style="--h:50%"><div class="bar"></div><span>Wed</span></div>
-              <div class="mood-bar" style="--h:80%"><div class="bar"></div><span>Thu</span></div>
-              <div class="mood-bar" style="--h:70%"><div class="bar"></div><span>Fri</span></div>
-              <div class="mood-bar" style="--h:90%"><div class="bar"></div><span>Sat</span></div>
-              <div class="mood-bar" style="--h:72%"><div class="bar"></div><span>Sun</span></div>
-            </div>
-            <p style="margin-bottom:10px; font-size:0.85rem; font-weight:600; color:var(--ink);">How are you, right now?</p>
-            <div class="mood-picker">
-              <button class="mood-btn" data-mood="Low">😔</button>
-              <button class="mood-btn" data-mood="Uneasy">😕</button>
-              <button class="mood-btn selected" data-mood="Okay">🙂</button>
-              <button class="mood-btn" data-mood="Good">😊</button>
-              <button class="mood-btn" data-mood="Great">😄</button>
-            </div>
-          </div>
-
-          <div class="panel" data-aos="fade-up" data-aos-delay="100">
-            <h2>Upcoming session</h2>
-            <div class="session-card">
-              <div class="who">
-                <div class="initials">MN</div>
-                <div><p style="font-weight:600; color:var(--ink);">Dr. Meera Nair</p><p style="font-size:0.8rem;">Cognitive Behavioural Therapy</p></div>
-              </div>
-              <p class="when mono">Thu, Sep 3 · 4:00 PM · Video call</p>
-              <button class="btn">Join session</button>
-            </div>
-            <h2 style="font-size:1.05rem;">Journal streak</h2>
-            <div class="journal-streak"><p style="font-size:0.85rem;">Entries this month</p><div class="num mono">9</div></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== SESSIONS ===== -->
-      <section class="view" data-view-content="sessions">
-        <div class="panel-head" data-aos="fade-up"><h1 style="font-size:1.7rem;">Sessions</h1></div>
-        <div class="panel" data-aos="fade-up" style="margin-bottom:20px;">
-          <div class="session-card" style="margin-bottom:0;">
-            <div class="who"><div class="initials">MN</div><div><p style="font-weight:600; color:var(--ink);">Dr. Meera Nair</p><p style="font-size:0.8rem;">Cognitive Behavioural Therapy</p></div></div>
-            <p class="when mono">Thu, Sep 3 · 4:00 PM · Video call</p>
-            <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <button class="btn">Join session</button>
-              <button class="btn ghost">Reschedule</button>
-            </div>
-          </div>
-        </div>
-        <div class="panel" data-aos="fade-up" data-aos-delay="80">
-          <div class="panel-head"><h2>Session history</h2><span class="legend">Last 6 sessions</span></div>
-          <div class="session-list">
-            <div class="session-row"><div class="initials">MN</div><div class="meta"><p>Dr. Meera Nair — CBT</p><p class="mono">Aug 26, 2026 · 4:00 PM</p></div><span class="status-badge done">Completed</span></div>
-            <div class="session-row"><div class="initials">MN</div><div class="meta"><p>Dr. Meera Nair — CBT</p><p class="mono">Aug 19, 2026 · 4:00 PM</p></div><span class="status-badge done">Completed</span></div>
-            <div class="session-row"><div class="initials">MN</div><div class="meta"><p>Dr. Meera Nair — CBT</p><p class="mono">Aug 12, 2026 · 4:00 PM</p></div><span class="status-badge done">Completed</span></div>
-            <div class="session-row"><div class="initials">MN</div><div class="meta"><p>Dr. Meera Nair — CBT</p><p class="mono">Aug 5, 2026 · 4:00 PM</p></div><span class="status-badge done">Completed</span></div>
-            <div class="session-row"><div class="initials">MN</div><div class="meta"><p>Dr. Meera Nair — Intake</p><p class="mono">Jul 29, 2026 · 4:00 PM</p></div><span class="status-badge done">Completed</span></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== JOURNAL ===== -->
-      <section class="view" data-view-content="journal">
-        <div class="panel-head" data-aos="fade-up"><h1 style="font-size:1.7rem;">Journal</h1></div>
-        <div class="journal-toolbar" data-aos="fade-up">
-          <div class="chip-row" id="journalFilters">
-            <button class="chip active" data-tag="all">All</button>
-            <button class="chip" data-tag="Gratitude">Gratitude</button>
-            <button class="chip" data-tag="Coping skill">Coping skill</button>
-            <button class="chip" data-tag="Session note">Session note</button>
-          </div>
-          <button class="btn">+ New entry</button>
-        </div>
-        <div class="journal-list" id="journalList">
-          <div class="journal-entry" data-tag="Gratitude" data-aos="fade-up" data-aos-delay="0"><p class="date mono">Sep 1, 2026</p><p>Noticed I felt calmer after the evening walk. Naming three things I was grateful for helped quiet the looping thoughts before bed.</p><span class="tag">Gratitude</span></div>
-          <div class="journal-entry" data-tag="Coping skill" data-aos="fade-up" data-aos-delay="80"><p class="date mono">Aug 29, 2026</p><p>Work deadline stress crept back in. Used the 5-4-3-2-1 grounding exercise between meetings — it actually helped me refocus.</p><span class="tag">Coping skill</span></div>
-          <div class="journal-entry" data-tag="Session note" data-aos="fade-up" data-aos-delay="160"><p class="date mono">Aug 26, 2026</p><p>Good session with Dr. Nair today. We talked through reframing the "I have to be perfect" thought. Feeling lighter.</p><span class="tag">Session note</span></div>
-          <div class="journal-entry" data-tag="Gratitude" data-aos="fade-up" data-aos-delay="0"><p class="date mono">Aug 22, 2026</p><p>Small win: I said no to an extra commitment without over-explaining myself. Proud of that boundary.</p><span class="tag">Gratitude</span></div>
-          <div class="journal-entry" data-tag="Coping skill" data-aos="fade-up" data-aos-delay="80"><p class="date mono">Aug 18, 2026</p><p>Anxious before a presentation. Box breathing for two minutes beforehand really did steady my hands.</p><span class="tag">Coping skill</span></div>
-          <div class="journal-entry" data-tag="Session note" data-aos="fade-up" data-aos-delay="160"><p class="date mono">Aug 12, 2026</p><p>Talked about sleep patterns and screen time before bed. Agreed to try a wind-down routine this week.</p><span class="tag">Session note</span></div>
-        </div>
-      </section>
-
-      <!-- ===== RESOURCES ===== -->
-      <section class="view" data-view-content="resources">
-        <div class="panel-head" data-aos="fade-up"><h1 style="font-size:1.7rem;">Resources</h1></div>
-        <div class="chip-row" id="resourceFilters" data-aos="fade-up" style="margin-bottom:22px;">
-          <button class="chip active" data-cat="all">All</button>
-          <button class="chip" data-cat="Grounding">Grounding</button>
-          <button class="chip" data-cat="Sleep">Sleep</button>
-          <button class="chip" data-cat="Anxiety">Anxiety</button>
-          <button class="chip" data-cat="Mindfulness">Mindfulness</button>
-        </div>
-        <div class="resource-grid" id="resourceGrid">
-          <div class="resource-card" data-cat="Grounding" data-aos="fade-up" data-aos-delay="0"><div class="icon">🌿</div><h3>5-4-3-2-1 Grounding</h3><p>A short sensory exercise to steady yourself during anxious moments.</p></div>
-          <div class="resource-card" data-cat="Sleep" data-aos="fade-up" data-aos-delay="80"><div class="icon">🌙</div><h3>Better sleep hygiene</h3><p>Small, realistic changes to help your evenings wind down.</p></div>
-          <div class="resource-card" data-cat="Anxiety" data-aos="fade-up" data-aos-delay="160"><div class="icon">🔍</div><h3>Understanding triggers</h3><p>A guide to noticing patterns before anxiety builds.</p></div>
-          <div class="resource-card" data-cat="Mindfulness" data-aos="fade-up" data-aos-delay="240"><div class="icon">🫁</div><h3>Guided body scan</h3><p>A 10-minute audio practice for releasing physical tension.</p></div>
-          <div class="resource-card" data-cat="Anxiety" data-aos="fade-up" data-aos-delay="0"><div class="icon">💭</div><h3>Reframing racing thoughts</h3><p>A short worksheet for catching and challenging spirals.</p></div>
-          <div class="resource-card" data-cat="Mindfulness" data-aos="fade-up" data-aos-delay="80"><div class="icon">🕯️</div><h3>2-minute reset</h3><p>A quick practice for transitions between meetings or tasks.</p></div>
-          <div class="resource-card" data-cat="Sleep" data-aos="fade-up" data-aos-delay="160"><div class="icon">📵</div><h3>Screen wind-down</h3><p>A gentle plan for the hour before bed.</p></div>
-          <div class="resource-card" data-cat="Grounding" data-aos="fade-up" data-aos-delay="240"><div class="icon">🖐️</div><h3>Hand-on-heart practice</h3><p>A physical anchor for moments of overwhelm.</p></div>
-        </div>
-      </section>
-
-      <!-- ===== SETTINGS ===== -->
-      <section class="view" data-view-content="settings">
-        <div class="panel-head" data-aos="fade-up"><h1 style="font-size:1.7rem;">Settings</h1></div>
-        <div class="settings-grid">
-          <div class="panel" data-aos="fade-up">
-            <h2>Profile</h2>
-            <div class="form-row"><label>Full name</label><input type="text" value="Asha Verma" /></div>
-            <div class="form-row"><label>Email</label><input type="text" value="asha.verma@email.com" /></div>
-            <div class="form-row"><label>Preferred therapist</label><input type="text" value="Dr. Meera Nair" /></div>
-            <button class="btn">Save changes</button>
-          </div>
-          <div class="panel" data-aos="fade-up" data-aos-delay="100">
-            <h2>Notifications</h2>
-            <div class="toggle-row"><div><p>Session reminders</p><p>Get notified an hour before each session.</p></div><div class="switch on"></div></div>
-            <div class="toggle-row"><div><p>Daily check-in nudge</p><p>A gentle reminder to log your mood.</p></div><div class="switch on"></div></div>
-            <div class="toggle-row"><div><p>New resources</p><p>Hear about newly added guided practices.</p></div><div class="switch"></div></div>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <footer class="site-footer">
-      <p class="crisis">If you're in crisis or thinking about harming yourself, you're not alone — call or text 988 (US), or contact your local emergency number.</p>
-      <p class="fine">Haven is a supplement to care from your therapist, not a replacement for emergency services.</p>
-    </footer>
-  </div>
+</nav>
+<div class="sidebar-footer">
+<p><strong>🔥 12 day streak</strong><br/>You're building a steady rhythm of care.</p>
 </div>
-
+</aside>
+<div class="main">
+<div class="topbar">
+<button aria-label="Open menu" class="hamburger" id="hamburger"><span></span></button>
+<div class="brand-mini">
+<svg fill="none" viewBox="0 0 40 40"><circle cx="16" cy="20" fill="#7C9B8E" opacity="0.7" r="13"></circle><circle cx="25" cy="17" fill="#E8846B" opacity="0.85" r="11"></circle></svg>
+<span>Haven</span>
+</div>
+<div class="search">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
+<form action="404.html" method="GET" style="display:inline-block; width:100%; max-width:400px; margin:0;"><input placeholder="Search sessions, entries, resources…" required="" type="text"/></form>
+</div>
+<div class="topbar-right">
+<div class="streak-pill">🔥 <span class="txt">12 day streak</span></div>
+<div class="client-id" style="display:flex; align-items:center; gap:10px;"><div class="avatar" id="userAvatar">AV</div><div class="txt" style="display:block; text-align:left; line-height:1.2;"><p id="userName">User</p></div></div>
+</div>
+</div>
+<main class="view-wrap">
+<!-- ===== OVERVIEW ===== -->
+<section class="view active" data-view-content="overview">
+<div class="hero">
+<div class="hero-text" data-aos="fade-right">
+<p class="eyebrow">Thursday, September 3</p>
+<h1>Good evening,<br/><span class="accent-text">Asha</span>.</h1>
+<p class="hero-sub">You've shown up for yourself twelve days running. Take a slow minute before your next session — the ring is here whenever you need it.</p>
+</div>
+<div class="breathing-card" data-aos="fade-left">
+<div class="breath-ring"><div class="breath-circle" id="breathCircle"></div><span id="breathLabel">Breathe In</span></div>
+<p class="breath-caption">A minute for yourself, before the day asks for more.</p>
+</div>
+</div>
+<div class="stats-row">
+<div class="stat-card" data-aos="fade-up" data-aos-delay="0"><div class="val"><span class="count" data-target="12">0</span></div><div class="label">Day mindful streak</div></div>
+<div class="stat-card" data-aos="fade-up" data-aos-delay="80"><div class="val"><span class="count" data-target="24">0</span></div><div class="label">Sessions completed</div></div>
+<div class="stat-card" data-aos="fade-up" data-aos-delay="160"><div class="val"><span class="count" data-target="145">0</span><span class="unit">min</span></div><div class="label">Mindful minutes this week</div></div>
+<div class="stat-card" data-aos="fade-up" data-aos-delay="240"><div class="val"><span class="count" data-decimal="1" data-target="7.2">0</span><span class="unit">/10</span></div><div class="label">Average mood this week</div></div>
+</div>
+<div class="grid-2">
+<div class="panel" data-aos="fade-up">
+<h2>This week's mood</h2>
+<div class="mood-chart" id="moodChart">
+<div class="mood-bar" style="--h:60%"><div class="bar"></div><span>Mon</span></div>
+<div class="mood-bar" style="--h:70%"><div class="bar"></div><span>Tue</span></div>
+<div class="mood-bar" style="--h:50%"><div class="bar"></div><span>Wed</span></div>
+<div class="mood-bar" style="--h:80%"><div class="bar"></div><span>Thu</span></div>
+<div class="mood-bar" style="--h:70%"><div class="bar"></div><span>Fri</span></div>
+<div class="mood-bar" style="--h:90%"><div class="bar"></div><span>Sat</span></div>
+<div class="mood-bar" style="--h:72%"><div class="bar"></div><span>Sun</span></div>
+</div>
+<p style="margin-bottom:10px; font-size:0.85rem; font-weight:600; color:var(--ink);">How are you, right now?</p>
+<div class="mood-picker">
+<button class="mood-btn" data-mood="Low">😔</button>
+<button class="mood-btn" data-mood="Uneasy">😕</button>
+<button class="mood-btn selected" data-mood="Okay">🙂</button>
+<button class="mood-btn" data-mood="Good">😊</button>
+<button class="mood-btn" data-mood="Great">😄</button>
+</div>
+</div>
+<div class="panel" data-aos="fade-up" data-aos-delay="100">
+<h2>Upcoming session</h2>
+<div class="session-card">
+<div class="who">
+<div class="initials">MN</div>
+<div><p style="font-weight:600; color:var(--ink);">Dr. Meera Nair</p><p style="font-size:0.8rem;">Cognitive Behavioural Therapy</p></div>
+</div>
+<p class="when mono">Thu, Sep 3 · 4:00 PM · Video call</p>
+<button class="btn" onclick="window.location.href='404.html';">Join session</button>
+</div>
+<h2 style="font-size:1.05rem;">Journal streak</h2>
+<div class="journal-streak"><p style="font-size:0.85rem;">Entries this month</p><div class="num mono">9</div></div>
+</div>
+</div>
+</section>
+<!-- ===== SESSIONS ===== -->
+<section class="view" data-view-content="sessions">
+<div class="panel-head" data-aos="fade-up"><h1 style="font-size:1.7rem;">Sessions</h1></div>
+<div class="panel" data-aos="fade-up" style="margin-bottom:20px;">
+<div class="session-card" style="margin-bottom:0;">
+<div class="who"><div class="initials">MN</div><div><p style="font-weight:600; color:var(--ink);">Dr. Meera Nair</p><p style="font-size:0.8rem;">Cognitive Behavioural Therapy</p></div></div>
+<p class="when mono">Thu, Sep 3 · 4:00 PM · Video call</p>
+<div style="display:flex; gap:10px; flex-wrap:wrap;">
+<button class="btn" onclick="window.location.href='404.html';">Join session</button>
+<button class="btn ghost" onclick="window.location.href='404.html';">Reschedule</button>
+</div>
+</div>
+</div>
+<div class="panel" data-aos="fade-up" data-aos-delay="80">
+<div class="panel-head"><h2>Session history</h2><span class="legend">Last 6 sessions</span></div>
+<div class="session-list">
+<div class="session-row"><div class="initials">MN</div><div class="meta"><p>Dr. Meera Nair — CBT</p><p class="mono">Aug 26, 2026 · 4:00 PM</p></div><span class="status-badge done">Completed</span></div>
+<div class="session-row"><div class="initials">MN</div><div class="meta"><p>Dr. Meera Nair — CBT</p><p class="mono">Aug 19, 2026 · 4:00 PM</p></div><span class="status-badge done">Completed</span></div>
+<div class="session-row"><div class="initials">MN</div><div class="meta"><p>Dr. Meera Nair — CBT</p><p class="mono">Aug 12, 2026 · 4:00 PM</p></div><span class="status-badge done">Completed</span></div>
+<div class="session-row"><div class="initials">MN</div><div class="meta"><p>Dr. Meera Nair — CBT</p><p class="mono">Aug 5, 2026 · 4:00 PM</p></div><span class="status-badge done">Completed</span></div>
+<div class="session-row"><div class="initials">MN</div><div class="meta"><p>Dr. Meera Nair — Intake</p><p class="mono">Jul 29, 2026 · 4:00 PM</p></div><span class="status-badge done">Completed</span></div>
+</div>
+</div>
+</section>
+<!-- ===== JOURNAL ===== -->
+<section class="view" data-view-content="journal">
+<div class="panel-head" data-aos="fade-up"><h1 style="font-size:1.7rem;">Journal</h1></div>
+<div class="journal-toolbar" data-aos="fade-up">
+<div class="chip-row" id="journalFilters">
+<button class="chip active" data-tag="all" onclick="window.location.href='404.html';">All</button>
+<button class="chip" data-tag="Gratitude" onclick="window.location.href='404.html';">Gratitude</button>
+<button class="chip" data-tag="Coping skill" onclick="window.location.href='404.html';">Coping skill</button>
+<button class="chip" data-tag="Session note" onclick="window.location.href='404.html';">Session note</button>
+</div>
+<button class="btn" onclick="window.location.href='404.html';">+ New entry</button>
+</div>
+<div class="journal-list" id="journalList">
+<div class="journal-entry" data-aos="fade-up" data-aos-delay="0" data-tag="Gratitude"><p class="date mono">Sep 1, 2026</p><p>Noticed I felt calmer after the evening walk. Naming three things I was grateful for helped quiet the looping thoughts before bed.</p><span class="tag">Gratitude</span></div>
+<div class="journal-entry" data-aos="fade-up" data-aos-delay="80" data-tag="Coping skill"><p class="date mono">Aug 29, 2026</p><p>Work deadline stress crept back in. Used the 5-4-3-2-1 grounding exercise between meetings — it actually helped me refocus.</p><span class="tag">Coping skill</span></div>
+<div class="journal-entry" data-aos="fade-up" data-aos-delay="160" data-tag="Session note"><p class="date mono">Aug 26, 2026</p><p>Good session with Dr. Nair today. We talked through reframing the "I have to be perfect" thought. Feeling lighter.</p><span class="tag">Session note</span></div>
+<div class="journal-entry" data-aos="fade-up" data-aos-delay="0" data-tag="Gratitude"><p class="date mono">Aug 22, 2026</p><p>Small win: I said no to an extra commitment without over-explaining myself. Proud of that boundary.</p><span class="tag">Gratitude</span></div>
+<div class="journal-entry" data-aos="fade-up" data-aos-delay="80" data-tag="Coping skill"><p class="date mono">Aug 18, 2026</p><p>Anxious before a presentation. Box breathing for two minutes beforehand really did steady my hands.</p><span class="tag">Coping skill</span></div>
+<div class="journal-entry" data-aos="fade-up" data-aos-delay="160" data-tag="Session note"><p class="date mono">Aug 12, 2026</p><p>Talked about sleep patterns and screen time before bed. Agreed to try a wind-down routine this week.</p><span class="tag">Session note</span></div>
+</div>
+</section>
+<!-- ===== RESOURCES ===== -->
+<section class="view" data-view-content="resources">
+<div class="panel-head" data-aos="fade-up"><h1 style="font-size:1.7rem;">Resources</h1></div>
+<div class="chip-row" data-aos="fade-up" id="resourceFilters" style="margin-bottom:22px;">
+<button class="chip active" data-cat="all" onclick="window.location.href='404.html';">All</button>
+<button class="chip" data-cat="Grounding" onclick="window.location.href='404.html';">Grounding</button>
+<button class="chip" data-cat="Sleep" onclick="window.location.href='404.html';">Sleep</button>
+<button class="chip" data-cat="Anxiety" onclick="window.location.href='404.html';">Anxiety</button>
+<button class="chip" data-cat="Mindfulness" onclick="window.location.href='404.html';">Mindfulness</button>
+</div>
+<div class="resource-grid" id="resourceGrid">
+<div class="resource-card" data-aos="fade-up" data-aos-delay="0" data-cat="Grounding"><div class="icon">🌿</div><h3>5-4-3-2-1 Grounding</h3><p>A short sensory exercise to steady yourself during anxious moments.</p></div>
+<div class="resource-card" data-aos="fade-up" data-aos-delay="80" data-cat="Sleep"><div class="icon">🌙</div><h3>Better sleep hygiene</h3><p>Small, realistic changes to help your evenings wind down.</p></div>
+<div class="resource-card" data-aos="fade-up" data-aos-delay="160" data-cat="Anxiety"><div class="icon">🔍</div><h3>Understanding triggers</h3><p>A guide to noticing patterns before anxiety builds.</p></div>
+<div class="resource-card" data-aos="fade-up" data-aos-delay="240" data-cat="Mindfulness"><div class="icon">🫁</div><h3>Guided body scan</h3><p>A 10-minute audio practice for releasing physical tension.</p></div>
+<div class="resource-card" data-aos="fade-up" data-aos-delay="0" data-cat="Anxiety"><div class="icon">💭</div><h3>Reframing racing thoughts</h3><p>A short worksheet for catching and challenging spirals.</p></div>
+<div class="resource-card" data-aos="fade-up" data-aos-delay="80" data-cat="Mindfulness"><div class="icon">🕯️</div><h3>2-minute reset</h3><p>A quick practice for transitions between meetings or tasks.</p></div>
+<div class="resource-card" data-aos="fade-up" data-aos-delay="160" data-cat="Sleep"><div class="icon">📵</div><h3>Screen wind-down</h3><p>A gentle plan for the hour before bed.</p></div>
+<div class="resource-card" data-aos="fade-up" data-aos-delay="240" data-cat="Grounding"><div class="icon">🖐️</div><h3>Hand-on-heart practice</h3><p>A physical anchor for moments of overwhelm.</p></div>
+</div>
+</section>
+<!-- ===== SETTINGS ===== -->
+<section class="view" data-view-content="settings">
+<div class="panel-head" data-aos="fade-up"><h1 style="font-size:1.7rem;">Settings</h1></div>
+<div class="settings-grid">
+<div class="panel" data-aos="fade-up">
+<h2>Profile</h2>
+<div class="form-row"><label>Full name</label><input type="text" value="Asha Verma"/></div>
+<div class="form-row"><label>Email</label><input type="text" value="asha.verma@email.com"/></div>
+<div class="form-row"><label>Preferred therapist</label><input type="text" value="Dr. Meera Nair"/></div>
+<button class="btn" onclick="window.location.href='404.html';">Save changes</button>
+</div>
+<div class="panel" data-aos="fade-up" data-aos-delay="100">
+<h2>Notifications</h2>
+<div class="toggle-row"><div><p>Session reminders</p><p>Get notified an hour before each session.</p></div><div class="switch on"></div></div>
+<div class="toggle-row"><div><p>Daily check-in nudge</p><p>A gentle reminder to log your mood.</p></div><div class="switch on"></div></div>
+<div class="toggle-row"><div><p>New resources</p><p>Hear about newly added guided practices.</p></div><div class="switch"></div></div>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<p class="crisis">If you're in crisis or thinking about harming yourself, you're not alone — call or text 988 (US), or contact your local emergency number.</p>
+<p class="fine">Haven is a supplement to care from your therapist, not a replacement for emergency services.</p>
+</footer>
+</div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script>
@@ -642,6 +628,46 @@
   hamburger.addEventListener('click', openSidebar);
   sidebarClose.addEventListener('click', closeSidebar);
   overlay.addEventListener('click', closeSidebar);
+
+
+    
+
+</script>
+
+<!-- Dynamic Profile Update -->
+<script>
+(function() {
+    function updateProfile() {
+        var user = localStorage.getItem('currentUser');
+        if (!user) user = 'Admin';
+        
+        // Format the name: replace dots/underscores with space and capitalize each word
+        var formatted = user.replace(/[._]/g, ' ').split(' ').map(function(word) {
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        }).join(' ');
+
+        // Get initials (up to 2 letters)
+        var initials = formatted.split(' ').map(function(w){return w[0];}).join('').substring(0, 2).toUpperCase();
+
+        var nameEl = document.getElementById('userName');
+        var avatarEl = document.getElementById('userAvatar');
+        
+        if (nameEl) nameEl.textContent = formatted;
+        if (avatarEl) avatarEl.textContent = initials;
+
+        document.querySelectorAll('h1').forEach(function(h1) {
+            if (h1.textContent.indexOf('Good morning') !== -1) {
+                h1.textContent = 'Good morning, ' + formatted + '.';
+            }
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateProfile);
+    } else {
+        updateProfile();
+    }
+})();
 </script>
 
 </body>

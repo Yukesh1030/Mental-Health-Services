@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (isValid) {
                 // Mock Authentication Routing
+                let username = email.value.split('@')[0];
+                localStorage.setItem('currentUser', username);
                 if (loginAs && loginAs.value === 'Admin') {
                     window.location.href = 'admin-dashboard.html';
                 } else {
