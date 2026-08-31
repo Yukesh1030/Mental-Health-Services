@@ -68,7 +68,7 @@
   .nav-item svg{ width:18px; height:18px; flex-shrink:0; opacity:0.85; }
   .nav-item:hover{ color:var(--ink); }
   .nav-item.active{ color: var(--primary); font-weight: 700; background: var(--surface-2); }
-  .nav-item .badge{ margin-left:auto; background:var(--danger); color:#fff; font-size:0.66rem; padding:1px 7px; border-radius:999px; font-weight:700; }
+  .nav-item .badge{ margin-left:auto; background:var(--accent); color:#fff; font-size:0.66rem; padding:1px 7px; border-radius:999px; font-weight:700; }
   .sidebar-footer{ margin-top:auto; padding:16px; border-radius:var(--radius-md); background:var(--surface-2); border:1px solid var(--line); }
   .sidebar-footer p{ font-size:0.78rem; }
   .sidebar-footer strong{ color:var(--ink); }
@@ -93,7 +93,7 @@
   .search input{ background:transparent; border:none; outline:none; color:var(--ink); font-size:0.88rem; width:100%; }
   .topbar-right{ display:flex; align-items:center; gap:14px; margin-left:auto; }
   .bell{ position:relative; width:38px; height:38px; border-radius:50%; background:var(--surface); display:flex; align-items:center; justify-content:center; border:1px solid var(--line); flex-shrink:0; }
-  .bell .dot{ position:absolute; top:8px; right:9px; width:7px; height:7px; border-radius:50%; background:var(--danger); }
+  .bell .dot{ position:absolute; top:8px; right:9px; width:7px; height:7px; border-radius:50%; background:var(--accent); }
   .admin-id{ display:flex; align-items:center; gap:10px; }
   .admin-id .avatar{ width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg, var(--accent), var(--gold)); display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:600; color:#fff; flex-shrink:0; }
   .admin-id .txt p:first-child{ color:var(--ink); font-size:0.85rem; font-weight:600; }
@@ -114,7 +114,7 @@
   .kpi-card .icon{ width:34px; height:34px; border-radius:10px; background:var(--surface-2); display:flex; align-items:center; justify-content:center; }
   .kpi-card .trend{ font-size:0.7rem; font-weight:700; padding:3px 8px; border-radius:999px; white-space:nowrap; }
   .trend.up{ color:var(--ok); background:var(--ok-soft); }
-  .trend.down{ color:var(--danger); background:var(--danger-soft); }
+  .trend.down{ color:var(--accent); background:var(--danger-soft); }
   .kpi-card .val{ font-family:'Fraunces',serif; font-size:1.9rem; color:var(--primary); font-weight:600; }
   .kpi-card .label{ font-size:0.8rem; margin-top:4px; }
   .gauge-card{ display:flex; flex-direction:column; align-items:center; justify-content:center; }
@@ -157,14 +157,14 @@
   .risk-flag{ font-size:0.72rem; font-weight:700; padding:4px 10px; border-radius:999px; display:inline-block; }
   .risk-flag.low{ background:var(--ok-soft); color:var(--ok); }
   .risk-flag.medium{ background:var(--warn-soft); color:var(--warn); }
-  .risk-flag.high{ background:var(--danger-soft); color:var(--danger); }
+  .risk-flag.high{ background:var(--danger-soft); color:var(--accent); }
 
   /* ---------- Alerts / activity ---------- */
   .lower-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
   .alert-item{ display:flex; gap:12px; align-items:flex-start; padding:14px 0; border-bottom:1px solid var(--line); flex-wrap:wrap; }
   .alert-item:last-child{ border-bottom:none; }
   .alert-item .sev{ width:8px; height:8px; border-radius:50%; margin-top:6px; flex-shrink:0; }
-  .sev.high{ background:var(--danger); box-shadow:0 0 0 4px var(--danger-soft); }
+  .sev.high{ background:var(--accent); box-shadow:0 0 0 4px var(--danger-soft); }
   .sev.medium{ background:var(--warn); box-shadow:0 0 0 4px var(--warn-soft); }
   .alert-item .body{ flex:1; min-width:150px; }
   .alert-item p.name{ color:var(--ink); font-weight:600; font-size:0.86rem; }
@@ -266,7 +266,7 @@
 <img alt="Haven Logo" src="assets/Brand-logo.webp" style="height: 32px; width: auto;"/>
 </a>
 <button aria-label="Close menu" class="sidebar-close" id="sidebarClose">
-<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16"><path d="M18 6 6 18M6 6l12 12"></path></svg>
 </button>
 </div>
 <nav class="nav-group" id="navGroup">
@@ -314,7 +314,7 @@
 </a>
 </div>
 <div class="search">
-<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
 <form action="404.html" method="GET" style="display:inline-block; width:100%; max-width:400px; margin:0;"><input placeholder="Search clients, therapists, sessions…" required="" type="text"/></form>
 </div>
 <div class="topbar-right">
@@ -355,44 +355,47 @@
 </section>
 <!-- Section 3: Data Table -->
 <div class="panel" data-aos="fade-up" style="margin-bottom:26px;">
-<div class="panel-head">
-<h2>Client Roster</h2>
-</div>
-<div class="table-toolbar">
-<div class="chip-row" id="riskFilters">
-<button class="chip active" data-risk="all" onclick="window.location.href='404.html';">All</button>
-<button class="chip" data-risk="low" onclick="window.location.href='404.html';">Low</button>
-<button class="chip" data-risk="medium" onclick="window.location.href='404.html';">Medium</button>
-<button class="chip" data-risk="high" onclick="window.location.href='404.html';">High</button>
-</div>
-<span class="legend">Showing 6 of 284</span>
-</div>
-<div class="table-scroll">
-<table>
-<thead><tr><th>Client</th><th>Therapist</th><th>Last session</th><th>Mood trend</th><th>Risk</th></tr></thead>
-<tbody id="clientTable">
-<tr data-risk="low"><td class="client-name"><span class="dot">PS</span>Priya Sundaram</td><td>Dr. Meera Nair</td><td class="mono">Aug 26, 2026</td><td><svg height="24" viewbox="0 0 70 24" width="70"><polyline fill="none" points="0,16 12,10 24,14 36,6 48,9 60,4 70,7" stroke="#3F5D52" stroke-width="2"></polyline></svg></td><td><span class="risk-flag low">Low</span></td></tr>
-<tr data-risk="medium"><td class="client-name"><span class="dot">VK</span>Vikram Khanna</td><td>Dr. Arjun Bose</td><td class="mono">Aug 24, 2026</td><td><svg height="24" viewbox="0 0 70 24" width="70"><polyline fill="none" points="0,8 12,10 24,7 36,14 48,12 60,18 70,16" stroke="#C9A24B" stroke-width="2"></polyline></svg></td><td><span class="risk-flag medium">Medium</span></td></tr>
-<tr data-risk="high"><td class="client-name"><span class="dot">NR</span>Neha Reddy</td><td>Dr. Farah Sheikh</td><td class="mono">Aug 23, 2026</td><td><svg height="24" viewbox="0 0 70 24" width="70"><polyline fill="none" points="0,6 12,12 24,16 36,15 48,20 60,19 70,22" stroke="#D2503B" stroke-width="2"></polyline></svg></td><td><span class="risk-flag high">High</span></td></tr>
-<tr data-risk="low"><td class="client-name"><span class="dot">AJ</span>Aditya Joshi</td><td>Dr. Kabir Rao</td><td class="mono">Aug 22, 2026</td><td><svg height="24" viewbox="0 0 70 24" width="70"><polyline fill="none" points="0,14 12,12 24,9 36,11 48,7 60,8 70,5" stroke="#3F5D52" stroke-width="2"></polyline></svg></td><td><span class="risk-flag low">Low</span></td></tr>
-<tr data-risk="medium"><td class="client-name"><span class="dot">SM</span>Sara Mathew</td><td>Dr. Leah Thomas</td><td class="mono">Aug 21, 2026</td><td><svg height="24" viewbox="0 0 70 24" width="70"><polyline fill="none" points="0,10 12,14 24,11 36,17 48,13 60,15 70,12" stroke="#C9A24B" stroke-width="2"></polyline></svg></td><td><span class="risk-flag medium">Medium</span></td></tr>
-<tr data-risk="low"><td class="client-name"><span class="dot">RD</span>Rehan Das</td><td>Dr. Meera Nair</td><td class="mono">Aug 20, 2026</td><td><svg height="24" viewbox="0 0 70 24" width="70"><polyline fill="none" points="0,7 12,6 24,9 36,5 48,8 60,4 70,6" stroke="#3F5D52" stroke-width="2"></polyline></svg></td><td><span class="risk-flag low">Low</span></td></tr>
-</tbody>
-</table>
-</div>
 </div>
 <!-- Section 4 & 5: Charts & Activity -->
 <section class="charts-grid">
 <!-- Demographics Chart -->
 <div class="panel" data-aos="fade-up">
 <div class="panel-head"><h2>Client Growth</h2><span class="legend">Last 6 Months</span></div>
-<div class="bar-chart" data-chart="">
-<div class="col" style="--h:42%"><div class="bar"></div><span>Mar</span></div>
-<div class="col" style="--h:55%"><div class="bar"></div><span>Apr</span></div>
-<div class="col" style="--h:68%"><div class="bar"></div><span>May</span></div>
-<div class="col" style="--h:72%"><div class="bar"></div><span>Jun</span></div>
-<div class="col" style="--h:85%"><div class="bar"></div><span>Jul</span></div>
-<div class="col" style="--h:95%"><div class="bar"></div><span>Aug</span></div>
+<div class="svg-chart-container" style="position: relative; width: 100%; height: 160px; margin-top: 10px;">
+<svg preserveAspectRatio="none" style="width: 100%; height: 100%; overflow: visible;" viewBox="0 0 400 160">
+<!-- Grid Lines -->
+<line stroke="var(--line)" stroke-dasharray="4" x1="0" x2="400" y1="20" y2="20"></line>
+<line stroke="var(--line)" stroke-dasharray="4" x1="0" x2="400" y1="60" y2="60"></line>
+<line stroke="var(--line)" stroke-dasharray="4" x1="0" x2="400" y1="100" y2="100"></line>
+<line stroke="var(--ink-faint)" stroke-width="1" x1="0" x2="400" y1="140" y2="140"></line>
+<!-- Area Fill -->
+<path class="growth-area" d="M0,140 L0,110 Q50,90 80,100 T160,80 T240,60 T320,40 T400,20 L400,140 Z" fill="url(#gradientPrimary)" opacity="1"></path>
+<!-- Line -->
+<path class="growth-line" d="M0,110 Q50,90 80,100 T160,80 T240,60 T320,40 T400,20" fill="none" stroke="var(--primary)" stroke-dasharray="600"  stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+<!-- Points -->
+<circle class="growth-pt" cx="0" cy="110" fill="var(--surface)" opacity="1" r="5" stroke="var(--primary)" stroke-width="3"></circle>
+<circle class="growth-pt" cx="80" cy="100" fill="var(--surface)" opacity="1" r="5" stroke="var(--primary)" stroke-width="3"></circle>
+<circle class="growth-pt" cx="160" cy="80" fill="var(--surface)" opacity="1" r="5" stroke="var(--primary)" stroke-width="3"></circle>
+<circle class="growth-pt" cx="240" cy="60" fill="var(--surface)" opacity="1" r="5" stroke="var(--primary)" stroke-width="3"></circle>
+<circle class="growth-pt" cx="320" cy="40" fill="var(--surface)" opacity="1" r="5" stroke="var(--primary)" stroke-width="3"></circle>
+<circle class="growth-pt" cx="400" cy="20" fill="var(--surface)" opacity="1" r="5" stroke="var(--primary)" stroke-width="3"></circle>
+<!-- Gradient Def -->
+<defs>
+<linearGradient id="gradientPrimary" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="var(--primary)" stop-opacity="0.4"></stop>
+<stop offset="100%" stop-color="var(--primary)" stop-opacity="1"></stop>
+</linearGradient>
+</defs>
+</svg>
+<!-- X-Axis Labels -->
+<div style="display: flex; justify-content: space-between; margin-top: 8px; padding: 0 10px; color: var(--ink-faint); font-size: 0.75rem;">
+<span>Mar</span>
+<span>Apr</span>
+<span>May</span>
+<span>Jun</span>
+<span>Jul</span>
+<span>Aug</span>
+</div>
 </div>
 </div>
 <!-- Activity Log -->
@@ -565,6 +568,52 @@
   hamburger.addEventListener('click', openSidebar);
   sidebarClose.addEventListener('click', closeSidebar);
   overlay.addEventListener('click', closeSidebar);
-</script>
+
+    /* ---------- Custom Chart Animations ---------- */
+    function animateCustomCharts() {
+      if (typeof gsap === 'undefined') return;
+      
+      // Animate pie segments (stroke-dashoffset from 157.08 to target)
+      gsap.utils.toArray('.pie-segment').forEach((segment) => {
+        const targetOffset = segment.getAttribute('stroke-dashoffset');
+        const delay = parseFloat(segment.getAttribute('data-delay') || 0);
+        
+        // Start from fully hidden
+        gsap.set(segment, { strokeDashoffset: 157.08 });
+        
+        // Animate to target
+        gsap.to(segment, { 
+          strokeDashoffset: targetOffset, 
+          duration: 1.5, 
+          delay: delay + 0.2, 
+          ease: 'power3.out' 
+        });
+      });
+      
+      // Animate horizontal legend bars
+      gsap.utils.toArray('.legend-bar').forEach((bar, i) => {
+        const width = bar.getAttribute('data-width');
+        gsap.set(bar, { width: '0%' });
+        gsap.to(bar, { 
+          width: width, 
+          duration: 1.2, 
+          delay: 0.5 + (i * 0.15), 
+          ease: 'power2.out' 
+        });
+      });
+    }
+    
+    // Call it when AOS is done or on load
+    window.addEventListener('load', animateCustomCharts);
+    
+    // Custom GSAP for Growth Line Chart
+    window.addEventListener('load', () => {
+      if (typeof gsap !== 'undefined') {
+        gsap.from('.growth-area', { opacity: 0, duration: 1.5, ease: 'power2.inOut', delay: 0.2 });
+        gsap.from('.growth-line', { strokeDashoffset: 600, duration: 1.5, ease: 'power2.out', delay: 0.2 });
+        gsap.from('.growth-pt', { opacity: 0, duration: 0.5, stagger: 0.1, delay: 1.2 });
+      }
+    });
+    </script>
 </body>
 </html>

@@ -556,6 +556,16 @@
   hamburger.addEventListener('click', openSidebar);
   sidebarClose.addEventListener('click', closeSidebar);
   overlay.addEventListener('click', closeSidebar);
-</script>
+
+    // Custom GSAP for Charts
+    window.addEventListener('load', () => {
+      if (typeof gsap !== 'undefined') {
+        gsap.from('.growth-area', { opacity: 0, duration: 1.5, ease: 'power2.inOut', delay: 0.2 });
+        gsap.from('.growth-line', { strokeDashoffset: 600, duration: 1.5, ease: 'power2.out', delay: 0.2 });
+        gsap.from('.growth-pt', { opacity: 0, duration: 0.5, stagger: 0.1, delay: 1.2 });
+        gsap.from('.v-bar-inner', { scaleY: 0, opacity: 0, duration: 0.8, stagger: 0.08, ease: 'back.out(1.5)', delay: 0.2 });
+      }
+    });
+    </script>
 </body>
 </html>

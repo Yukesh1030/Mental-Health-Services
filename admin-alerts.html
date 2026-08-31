@@ -68,7 +68,7 @@
   .nav-item svg{ width:18px; height:18px; flex-shrink:0; opacity:0.85; }
   .nav-item:hover{ color:var(--ink); }
   .nav-item.active{ color: var(--primary); font-weight: 700; background: var(--surface-2); }
-  .nav-item .badge{ margin-left:auto; background:var(--danger); color:#fff; font-size:0.66rem; padding:1px 7px; border-radius:999px; font-weight:700; }
+  .nav-item .badge{ margin-left:auto; background:var(--accent); color:#fff; font-size:0.66rem; padding:1px 7px; border-radius:999px; font-weight:700; }
   .sidebar-footer{ margin-top:auto; padding:16px; border-radius:var(--radius-md); background:var(--surface-2); border:1px solid var(--line); }
   .sidebar-footer p{ font-size:0.78rem; }
   .sidebar-footer strong{ color:var(--ink); }
@@ -93,7 +93,7 @@
   .search input{ background:transparent; border:none; outline:none; color:var(--ink); font-size:0.88rem; width:100%; }
   .topbar-right{ display:flex; align-items:center; gap:14px; margin-left:auto; }
   .bell{ position:relative; width:38px; height:38px; border-radius:50%; background:var(--surface); display:flex; align-items:center; justify-content:center; border:1px solid var(--line); flex-shrink:0; }
-  .bell .dot{ position:absolute; top:8px; right:9px; width:7px; height:7px; border-radius:50%; background:var(--danger); }
+  .bell .dot{ position:absolute; top:8px; right:9px; width:7px; height:7px; border-radius:50%; background:var(--accent); }
   .admin-id{ display:flex; align-items:center; gap:10px; }
   .admin-id .avatar{ width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg, var(--accent), var(--gold)); display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:600; color:#fff; flex-shrink:0; }
   .admin-id .txt p:first-child{ color:var(--ink); font-size:0.85rem; font-weight:600; }
@@ -114,7 +114,7 @@
   .kpi-card .icon{ width:34px; height:34px; border-radius:10px; background:var(--surface-2); display:flex; align-items:center; justify-content:center; }
   .kpi-card .trend{ font-size:0.7rem; font-weight:700; padding:3px 8px; border-radius:999px; white-space:nowrap; }
   .trend.up{ color:var(--ok); background:var(--ok-soft); }
-  .trend.down{ color:var(--danger); background:var(--danger-soft); }
+  .trend.down{ color:var(--accent); background:var(--danger-soft); }
   .kpi-card .val{ font-family:'Fraunces',serif; font-size:1.9rem; color:var(--primary); font-weight:600; }
   .kpi-card .label{ font-size:0.8rem; margin-top:4px; }
   .gauge-card{ display:flex; flex-direction:column; align-items:center; justify-content:center; }
@@ -157,14 +157,14 @@
   .risk-flag{ font-size:0.72rem; font-weight:700; padding:4px 10px; border-radius:999px; display:inline-block; }
   .risk-flag.low{ background:var(--ok-soft); color:var(--ok); }
   .risk-flag.medium{ background:var(--warn-soft); color:var(--warn); }
-  .risk-flag.high{ background:var(--danger-soft); color:var(--danger); }
+  .risk-flag.high{ background:var(--danger-soft); color:var(--accent); }
 
   /* ---------- Alerts / activity ---------- */
   .lower-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
   .alert-item{ display:flex; gap:12px; align-items:flex-start; padding:14px 0; border-bottom:1px solid var(--line); flex-wrap:wrap; }
   .alert-item:last-child{ border-bottom:none; }
   .alert-item .sev{ width:8px; height:8px; border-radius:50%; margin-top:6px; flex-shrink:0; }
-  .sev.high{ background:var(--danger); box-shadow:0 0 0 4px var(--danger-soft); }
+  .sev.high{ background:var(--accent); box-shadow:0 0 0 4px var(--danger-soft); }
   .sev.medium{ background:var(--warn); box-shadow:0 0 0 4px var(--warn-soft); }
   .alert-item .body{ flex:1; min-width:150px; }
   .alert-item p.name{ color:var(--ink); font-weight:600; font-size:0.86rem; }
@@ -266,7 +266,7 @@
 <img alt="Haven Logo" src="assets/Brand-logo.webp" style="height: 32px; width: auto;"/>
 </a>
 <button aria-label="Close menu" class="sidebar-close" id="sidebarClose">
-<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16"><path d="M18 6 6 18M6 6l12 12"></path></svg>
 </button>
 </div>
 <nav class="nav-group" id="navGroup">
@@ -314,7 +314,7 @@
 </a>
 </div>
 <div class="search">
-<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
 <form action="404.html" method="GET" style="display:inline-block; width:100%; max-width:400px; margin:0;"><input placeholder="Search clients, therapists, sessions…" required="" type="text"/></form>
 </div>
 <div class="topbar-right">
@@ -373,14 +373,21 @@
 <!-- Section 4: Alert Trends -->
 <div class="panel" data-aos="fade-up" data-aos-delay="100">
 <div class="panel-head"><h2>7-Day Alert Volume</h2></div>
-<div class="bar-chart" data-chart="" style="height:140px;">
-<div class="col" style="--h:20%"><div class="bar" style="background:var(--primary);"></div><span>M</span></div>
-<div class="col" style="--h:50%"><div class="bar" style="background:var(--primary);"></div><span>T</span></div>
-<div class="col" style="--h:30%"><div class="bar" style="background:var(--primary);"></div><span>W</span></div>
-<div class="col" style="--h:80%"><div class="bar" style="background:#D2503B;"></div><span>T</span></div>
-<div class="col" style="--h:40%"><div class="bar" style="background:var(--primary);"></div><span>F</span></div>
-<div class="col" style="--h:20%"><div class="bar" style="background:var(--primary);"></div><span>S</span></div>
-<div class="col" style="--h:10%"><div class="bar" style="background:var(--primary);"></div><span>S</span></div>
+<div class="svg-chart-container" style="position: relative; width: 100%; height: 140px; margin-top: 10px; display: flex; align-items: flex-end; justify-content: space-between; padding: 0 10px;">
+<!-- We will just use native div bars but heavily styled so they never fail -->
+<style>
+    .v-bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 8px; height: 100%; }
+    .v-bar-wrap { width: 100%; max-width: 24px; height: 100%; display: flex; align-items: flex-end; justify-content: center; background: rgba(0,0,0,0.03); border-radius: 6px; padding: 2px; }
+    .v-bar-inner { width: 100%; border-radius: 4px; transform-origin: bottom; }
+    .v-bar-col span { font-size: 0.7rem; color: var(--ink-faint); font-weight: 500; }
+  </style>
+<div class="v-bar-col"><div class="v-bar-wrap"><div class="v-bar-inner" style="height: 30%; background: var(--primary);"></div></div><span>M</span></div>
+<div class="v-bar-col"><div class="v-bar-wrap"><div class="v-bar-inner" style="height: 50%; background: var(--primary);"></div></div><span>T</span></div>
+<div class="v-bar-col"><div class="v-bar-wrap"><div class="v-bar-inner" style="height: 40%; background: var(--primary);"></div></div><span>W</span></div>
+<div class="v-bar-col"><div class="v-bar-wrap"><div class="v-bar-inner" style="height: 85%; background: var(--accent);"></div></div><span>T</span></div>
+<div class="v-bar-col"><div class="v-bar-wrap"><div class="v-bar-inner" style="height: 60%; background: var(--primary);"></div></div><span>F</span></div>
+<div class="v-bar-col"><div class="v-bar-wrap"><div class="v-bar-inner" style="height: 20%; background: var(--primary);"></div></div><span>S</span></div>
+<div class="v-bar-col"><div class="v-bar-wrap"><div class="v-bar-inner" style="height: 15%; background: var(--primary);"></div></div><span>S</span></div>
 </div>
 </div>
 <!-- Section 5: Recent Resolutions -->
@@ -553,6 +560,13 @@
   hamburger.addEventListener('click', openSidebar);
   sidebarClose.addEventListener('click', closeSidebar);
   overlay.addEventListener('click', closeSidebar);
-</script>
+
+    // Custom GSAP for Volume Bar Chart
+    window.addEventListener('load', () => {
+      if (typeof gsap !== 'undefined') {
+        gsap.from('.v-bar-inner', { scaleY: 0, opacity: 0, duration: 0.8, stagger: 0.08, ease: 'back.out(1.5)', delay: 0.2 });
+      }
+    });
+    </script>
 </body>
 </html>
