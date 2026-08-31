@@ -278,7 +278,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a5 5 0 0 1 5 5v2a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5Z"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
         Therapists
       </a>
-      <a href="admin-sessions.html" class="nav-item" data-view="sessions">
+      <a href="admin-sessions.html" class="nav-item active" data-view="sessions">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
         Sessions
       </a>
@@ -325,81 +325,80 @@
 
     <main class="view-wrap">
 
-      <!-- ===== DASHBOARD ===== -->
-      <section class="view active" data-view-content="dashboard">
-        <div class="page-head" data-aos="fade-up">
-          <h1>Good morning, Rohan.</h1>
-          <p>Here's how the practice is doing across 284 active clients today.</p>
+      <!-- ===== SESSIONS ===== -->
+      <section class="view active" data-view-content="sessions">
+        
+        <!-- Section 1: Header & Date Picker -->
+        <div class="page-head" style="display:flex; justify-content:space-between; align-items:flex-end;" data-aos="fade-up">
+          <div>
+            <h1>Session Schedule</h1>
+            <p>Today's schedule across all therapists.</p>
+          </div>
+          <div style="background:var(--surface-2); padding:8px 16px; border-radius:20px; font-weight:500;">
+            📅 Thursday, September 3, 2026
+          </div>
         </div>
 
-        <section class="kpi-row">
+        <!-- Section 2: Session KPIs -->
+        <section class="kpi-row" style="margin-bottom:26px;">
           <div class="kpi-card" data-aos="fade-up" data-aos-delay="0">
-            <div class="top"><div class="icon">👥</div><span class="trend up">+3.2%</span></div>
-            <div class="val"><span class="count" data-target="284">0</span></div>
-            <div class="label">Active clients</div>
+            <div class="top"><div class="icon">🗓️</div><span class="trend up">Peak day</span></div>
+            <div class="val"><span class="count" data-target="24">0</span></div>
+            <div class="label">Total Sessions Today</div>
           </div>
           <div class="kpi-card" data-aos="fade-up" data-aos-delay="80">
-            <div class="top"><div class="icon">🗓️</div><span class="trend up">+8</span></div>
-            <div class="val"><span class="count" data-target="96">0</span></div>
-            <div class="label">Sessions this week</div>
+            <div class="top"><div class="icon">💻</div></div>
+            <div class="val"><span class="count" data-target="18">0</span></div>
+            <div class="label">Video Calls</div>
           </div>
-          <div class="kpi-card gauge-card" data-aos="fade-up" data-aos-delay="160">
-            <div class="gauge-wrap">
-              <svg width="100" height="100" viewBox="0 0 110 110">
-                <circle cx="55" cy="55" r="46" stroke="var(--surface-2)" stroke-width="10" fill="none"/>
-                <circle id="gaugeArc" cx="55" cy="55" r="46" stroke="url(#gaugeGrad)" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="289" stroke-dashoffset="289"/>
-                <defs><linearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8846B"/><stop offset="100%" stop-color="#C9A24B"/></linearGradient></defs>
-              </svg>
-              <div class="gauge-num"><span class="n"><span class="count" data-target="74">0</span></span><span class="s">WELLBEING IDX</span></div>
-            </div>
+          <div class="kpi-card" data-aos="fade-up" data-aos-delay="160">
+            <div class="top"><div class="icon">🏥</div></div>
+            <div class="val"><span class="count" data-target="6">0</span></div>
+            <div class="label">In-Person</div>
           </div>
           <div class="kpi-card" data-aos="fade-up" data-aos-delay="240">
-            <div class="top"><div class="icon">⚠️</div><span class="trend down">2 new</span></div>
-            <div class="val"><span class="count" data-target="5">0</span></div>
-            <div class="label">Open risk alerts</div>
+            <div class="top"><div class="icon">❌</div><span class="trend down">Low</span></div>
+            <div class="val"><span class="count" data-target="1">0</span></div>
+            <div class="label">Cancellations</div>
           </div>
         </section>
 
+        <!-- Section 3 & 5: Daily Schedule & High-Risk -->
         <section class="charts-grid">
-          <div class="panel" data-aos="fade-up">
-            <div class="panel-head"><h2>Session volume</h2><span class="legend">Last 7 weeks</span></div>
-            <div class="bar-chart" data-chart>
-              <div class="col" style="--h:52%"><div class="bar"></div><span>W1</span></div>
-              <div class="col" style="--h:61%"><div class="bar"></div><span>W2</span></div>
-              <div class="col" style="--h:58%"><div class="bar"></div><span>W3</span></div>
-              <div class="col" style="--h:70%"><div class="bar"></div><span>W4</span></div>
-              <div class="col" style="--h:66%"><div class="bar"></div><span>W5</span></div>
-              <div class="col" style="--h:82%"><div class="bar"></div><span>W6</span></div>
-              <div class="col" style="--h:96%"><div class="bar"></div><span>W7</span></div>
+          <!-- Daily Schedule Timeline -->
+          <div class="panel" data-aos="fade-up" style="flex:2;">
+            <div class="panel-head"><h2>Today's Timeline</h2></div>
+            <div id="sessionScheduleList">
+              <div class="sessionlist-row"><span class="time mono">9:00</span><div class="meta"><p>Priya Sundaram · Dr. Meera Nair</p><p>Video call · CBT</p></div><span class="status-badge done">Completed</span></div>
+              <div class="sessionlist-row"><span class="time mono">10:30</span><div class="meta"><p>Aditya Joshi · Dr. Kabir Rao</p><p>Video call · DBT</p></div><span class="status-badge done">Completed</span></div>
+              <div class="sessionlist-row"><span class="time mono">11:15</span><div class="meta"><p>Sara Mathew · Dr. Leah Thomas</p><p>In-person · Trauma-informed</p></div><span class="status-badge done">Completed</span></div>
+              <div class="sessionlist-row"><span class="time mono">1:00</span><div class="meta"><p>Rehan Das · Dr. Meera Nair</p><p>Video call · CBT</p></div><span class="status-badge upcoming">Upcoming</span></div>
+              <div class="sessionlist-row"><span class="time mono">2:30</span><div class="meta"><p>Vikram Khanna · Dr. Arjun Bose</p><p>Video call · Psychodynamic</p></div><span class="status-badge upcoming">Upcoming</span></div>
+              <div class="sessionlist-row"><span class="time mono">4:00</span><div class="meta"><p>Asha Verma · Dr. Meera Nair</p><p>Video call · CBT</p></div><span class="status-badge upcoming">Upcoming</span></div>
             </div>
           </div>
-          <div class="panel" data-aos="fade-up" data-aos-delay="100">
-            <div class="panel-head"><h2>Therapist utilization</h2></div>
-            <div class="hbar-list" data-hbars>
-              <div class="hbar-row"><div class="top"><span>Dr. Meera Nair</span><span>92%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="92"></div></div></div>
-              <div class="hbar-row"><div class="top"><span>Dr. Arjun Bose</span><span>84%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="84"></div></div></div>
-              <div class="hbar-row"><div class="top"><span>Dr. Farah Sheikh</span><span>77%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="77"></div></div></div>
-              <div class="hbar-row"><div class="top"><span>Dr. Kabir Rao</span><span>65%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="65"></div></div></div>
-              <div class="hbar-row"><div class="top"><span>Dr. Leah Thomas</span><span>58%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="58"></div></div></div>
+
+          <div style="flex:1; display:flex; flex-direction:column; gap:26px;">
+            <!-- Upcoming High-Risk Sessions -->
+            <div class="panel" data-aos="fade-up" data-aos-delay="100">
+              <div class="panel-head"><h2>High-Risk Sessions</h2></div>
+              <div class="alert-item" style="border-left-color: #D2503B;"><div class="body"><p class="name">Neha Reddy</p><p class="note">Dr. Farah Sheikh (Video Call)</p></div><span class="time">Today, 5:00 PM</span></div>
+              <div class="alert-item" style="border-left-color: #D2503B;"><div class="body"><p class="name">Imran Sheikh</p><p class="note">Dr. Kabir Rao (In-Person)</p></div><span class="time">Tmrw, 10:00 AM</span></div>
+            </div>
+
+            <!-- Section 4: Session Volume Trends -->
+            <div class="panel" data-aos="fade-up" data-aos-delay="200">
+              <div class="panel-head"><h2>4-Week Volume</h2></div>
+              <div class="bar-chart" data-chart style="height:120px;">
+                <div class="col" style="--h:52%"><div class="bar"></div><span>W1</span></div>
+                <div class="col" style="--h:61%"><div class="bar"></div><span>W2</span></div>
+                <div class="col" style="--h:58%"><div class="bar"></div><span>W3</span></div>
+                <div class="col" style="--h:70%"><div class="bar"></div><span>W4</span></div>
+              </div>
             </div>
           </div>
         </section>
 
-        <section class="lower-grid">
-          <div class="panel" data-aos="fade-up">
-            <div class="panel-head"><h2>Top risk alerts</h2><span class="legend">5 open</span></div>
-            <div class="alert-item"><span class="sev high"></span><div class="body"><p class="name">Neha Reddy</p><p class="note">Mood score dropped sharply after missed session.</p></div><span class="time">2h ago</span></div>
-            <div class="alert-item"><span class="sev high"></span><div class="body"><p class="name">Imran Sheikh</p><p class="note">Flagged keywords in latest journal entry.</p></div><span class="time">5h ago</span></div>
-            <div class="alert-item"><span class="sev medium"></span><div class="body"><p class="name">Vikram Khanna</p><p class="note">Missed two consecutive check-ins.</p></div><span class="time">1d ago</span></div>
-          </div>
-          <div class="panel" data-aos="fade-up" data-aos-delay="100">
-            <div class="panel-head"><h2>Live activity</h2></div>
-            <div class="activity-item"><div class="ic">✅</div><p>Dr. Nair completed a session with Priya Sundaram</p><span class="time">14:02</span></div>
-            <div class="activity-item"><div class="ic">📝</div><p>Rehan Das submitted a journal entry</p><span class="time">13:41</span></div>
-            <div class="activity-item"><div class="ic">📅</div><p>New session booked — Dr. Farah Sheikh</p><span class="time">13:20</span></div>
-            <div class="activity-item"><div class="ic">💬</div><p>Aditya Joshi completed mood check-in</p><span class="time">12:58</span></div>
-          </div>
-        </section>
       </section>
     </main>
   </div>

@@ -286,7 +286,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V6M10 19V10M16 19V4M22 19H2"/></svg>
         Reports
       </a>
-      <a href="admin-alerts.html" class="nav-item" data-view="alerts">
+      <a href="admin-alerts.html" class="nav-item active" data-view="alerts">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 3 20h18L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
         Alerts <span class="badge">5</span>
       </a>
@@ -325,81 +325,81 @@
 
     <main class="view-wrap">
 
-      <!-- ===== DASHBOARD ===== -->
-      <section class="view active" data-view-content="dashboard">
-        <div class="page-head" data-aos="fade-up">
-          <h1>Good morning, Rohan.</h1>
-          <p>Here's how the practice is doing across 284 active clients today.</p>
-        </div>
-
-        <section class="kpi-row">
-          <div class="kpi-card" data-aos="fade-up" data-aos-delay="0">
-            <div class="top"><div class="icon">👥</div><span class="trend up">+3.2%</span></div>
-            <div class="val"><span class="count" data-target="284">0</span></div>
-            <div class="label">Active clients</div>
+      <!-- ===== ALERTS ===== -->
+      <section class="view active" data-view-content="alerts">
+        
+        <!-- Section 1: Header -->
+        <div class="page-head" style="display:flex; justify-content:space-between; align-items:flex-end;" data-aos="fade-up">
+          <div>
+            <h1>Risk Alerts & Triggers</h1>
+            <p>Immediate action required for flagged clients.</p>
           </div>
-          <div class="kpi-card" data-aos="fade-up" data-aos-delay="80">
-            <div class="top"><div class="icon">🗓️</div><span class="trend up">+8</span></div>
-            <div class="val"><span class="count" data-target="96">0</span></div>
-            <div class="label">Sessions this week</div>
-          </div>
-          <div class="kpi-card gauge-card" data-aos="fade-up" data-aos-delay="160">
-            <div class="gauge-wrap">
-              <svg width="100" height="100" viewBox="0 0 110 110">
-                <circle cx="55" cy="55" r="46" stroke="var(--surface-2)" stroke-width="10" fill="none"/>
-                <circle id="gaugeArc" cx="55" cy="55" r="46" stroke="url(#gaugeGrad)" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="289" stroke-dashoffset="289"/>
-                <defs><linearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8846B"/><stop offset="100%" stop-color="#C9A24B"/></linearGradient></defs>
-              </svg>
-              <div class="gauge-num"><span class="n"><span class="count" data-target="74">0</span></span><span class="s">WELLBEING IDX</span></div>
+          <div class="table-toolbar" style="margin:0; padding:0; border:none; background:none;">
+            <div class="chip-row" id="alertFilters">
+              <button class="chip active" data-sev="all">All</button>
+              <button class="chip" data-sev="high">High Risk</button>
+              <button class="chip" data-sev="medium">Medium Risk</button>
             </div>
           </div>
-          <div class="kpi-card" data-aos="fade-up" data-aos-delay="240">
-            <div class="top"><div class="icon">⚠️</div><span class="trend down">2 new</span></div>
+        </div>
+
+        <!-- Section 2: KPIs -->
+        <section class="kpi-row" style="margin-bottom:26px;">
+          <div class="kpi-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="top"><div class="icon" style="color:#D2503B;">🚨</div><span class="trend down">-1</span></div>
             <div class="val"><span class="count" data-target="5">0</span></div>
-            <div class="label">Open risk alerts</div>
+            <div class="label">Total Open Alerts</div>
+          </div>
+          <div class="kpi-card" data-aos="fade-up" data-aos-delay="80">
+            <div class="top"><div class="icon" style="color:#E8846B;">⚠️</div></div>
+            <div class="val"><span class="count" data-target="3">0</span></div>
+            <div class="label">Critical Priority</div>
+          </div>
+          <div class="kpi-card" data-aos="fade-up" data-aos-delay="160">
+            <div class="top"><div class="icon" style="color:#7C9B8E;">⏱️</div><span class="trend up">Faster</span></div>
+            <div class="val"><span class="count" data-target="1.4">0</span>h</div>
+            <div class="label">Avg Resolution Time</div>
           </div>
         </section>
 
         <section class="charts-grid">
-          <div class="panel" data-aos="fade-up">
-            <div class="panel-head"><h2>Session volume</h2><span class="legend">Last 7 weeks</span></div>
-            <div class="bar-chart" data-chart>
-              <div class="col" style="--h:52%"><div class="bar"></div><span>W1</span></div>
-              <div class="col" style="--h:61%"><div class="bar"></div><span>W2</span></div>
-              <div class="col" style="--h:58%"><div class="bar"></div><span>W3</span></div>
-              <div class="col" style="--h:70%"><div class="bar"></div><span>W4</span></div>
-              <div class="col" style="--h:66%"><div class="bar"></div><span>W5</span></div>
-              <div class="col" style="--h:82%"><div class="bar"></div><span>W6</span></div>
-              <div class="col" style="--h:96%"><div class="bar"></div><span>W7</span></div>
+          <!-- Section 3: Live Alerts Feed -->
+          <div class="panel" data-aos="fade-up" style="flex:2;">
+            <div class="panel-head"><h2>Action Required</h2><span class="legend">5 open</span></div>
+            <div id="alertList">
+              <div class="alert-item" data-sev="high"><span class="sev high"></span><div class="body"><p class="name">Neha Reddy</p><p class="note">Mood score dropped sharply after missed session.</p></div><span class="time">2h ago</span><button class="resolve-btn">Resolve</button></div>
+              <div class="alert-item" data-sev="high"><span class="sev high"></span><div class="body"><p class="name">Imran Sheikh</p><p class="note">Flagged keywords in latest journal entry.</p></div><span class="time">5h ago</span><button class="resolve-btn">Resolve</button></div>
+              <div class="alert-item" data-sev="medium"><span class="sev medium"></span><div class="body"><p class="name">Vikram Khanna</p><p class="note">Missed two consecutive check-ins.</p></div><span class="time">1d ago</span><button class="resolve-btn">Resolve</button></div>
+              <div class="alert-item" data-sev="medium"><span class="sev medium"></span><div class="body"><p class="name">Sara Mathew</p><p class="note">Self-reported sleep disruption, 4 nights running.</p></div><span class="time">1d ago</span><button class="resolve-btn">Resolve</button></div>
+              <div class="alert-item" data-sev="high"><span class="sev high"></span><div class="body"><p class="name">Kunal Verma</p><p class="note">No check-in for 6 consecutive days.</p></div><span class="time">2d ago</span><button class="resolve-btn">Resolve</button></div>
             </div>
           </div>
-          <div class="panel" data-aos="fade-up" data-aos-delay="100">
-            <div class="panel-head"><h2>Therapist utilization</h2></div>
-            <div class="hbar-list" data-hbars>
-              <div class="hbar-row"><div class="top"><span>Dr. Meera Nair</span><span>92%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="92"></div></div></div>
-              <div class="hbar-row"><div class="top"><span>Dr. Arjun Bose</span><span>84%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="84"></div></div></div>
-              <div class="hbar-row"><div class="top"><span>Dr. Farah Sheikh</span><span>77%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="77"></div></div></div>
-              <div class="hbar-row"><div class="top"><span>Dr. Kabir Rao</span><span>65%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="65"></div></div></div>
-              <div class="hbar-row"><div class="top"><span>Dr. Leah Thomas</span><span>58%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="58"></div></div></div>
+
+          <div style="flex:1; display:flex; flex-direction:column; gap:26px;">
+            <!-- Section 4: Alert Trends -->
+            <div class="panel" data-aos="fade-up" data-aos-delay="100">
+              <div class="panel-head"><h2>7-Day Alert Volume</h2></div>
+              <div class="bar-chart" data-chart style="height:140px;">
+                <div class="col" style="--h:20%"><div class="bar" style="background:var(--primary);"></div><span>M</span></div>
+                <div class="col" style="--h:50%"><div class="bar" style="background:var(--primary);"></div><span>T</span></div>
+                <div class="col" style="--h:30%"><div class="bar" style="background:var(--primary);"></div><span>W</span></div>
+                <div class="col" style="--h:80%"><div class="bar" style="background:#D2503B;"></div><span>T</span></div>
+                <div class="col" style="--h:40%"><div class="bar" style="background:var(--primary);"></div><span>F</span></div>
+                <div class="col" style="--h:20%"><div class="bar" style="background:var(--primary);"></div><span>S</span></div>
+                <div class="col" style="--h:10%"><div class="bar" style="background:var(--primary);"></div><span>S</span></div>
+              </div>
+            </div>
+            
+            <!-- Section 5: Recent Resolutions -->
+            <div class="panel" data-aos="fade-up" data-aos-delay="200">
+              <div class="panel-head"><h2>Recently Resolved</h2></div>
+              <div class="activity-item"><div class="ic" style="background:#7C9B8E; color:white;">✓</div><p>Rohan Iyer resolved alert for Aditya Joshi</p><span class="time">1h ago</span></div>
+              <div class="activity-item"><div class="ic" style="background:#7C9B8E; color:white;">✓</div><p>Rohan Iyer resolved alert for Priya Sundaram</p><span class="time">4h ago</span></div>
+              <button class="btn ghost" style="width:100%; margin-top:16px;">View Archive</button>
             </div>
           </div>
         </section>
 
-        <section class="lower-grid">
-          <div class="panel" data-aos="fade-up">
-            <div class="panel-head"><h2>Top risk alerts</h2><span class="legend">5 open</span></div>
-            <div class="alert-item"><span class="sev high"></span><div class="body"><p class="name">Neha Reddy</p><p class="note">Mood score dropped sharply after missed session.</p></div><span class="time">2h ago</span></div>
-            <div class="alert-item"><span class="sev high"></span><div class="body"><p class="name">Imran Sheikh</p><p class="note">Flagged keywords in latest journal entry.</p></div><span class="time">5h ago</span></div>
-            <div class="alert-item"><span class="sev medium"></span><div class="body"><p class="name">Vikram Khanna</p><p class="note">Missed two consecutive check-ins.</p></div><span class="time">1d ago</span></div>
-          </div>
-          <div class="panel" data-aos="fade-up" data-aos-delay="100">
-            <div class="panel-head"><h2>Live activity</h2></div>
-            <div class="activity-item"><div class="ic">✅</div><p>Dr. Nair completed a session with Priya Sundaram</p><span class="time">14:02</span></div>
-            <div class="activity-item"><div class="ic">📝</div><p>Rehan Das submitted a journal entry</p><span class="time">13:41</span></div>
-            <div class="activity-item"><div class="ic">📅</div><p>New session booked — Dr. Farah Sheikh</p><span class="time">13:20</span></div>
-            <div class="activity-item"><div class="ic">💬</div><p>Aditya Joshi completed mood check-in</p><span class="time">12:58</span></div>
-          </div>
-        </section>
       </section>
     </main>
   </div>

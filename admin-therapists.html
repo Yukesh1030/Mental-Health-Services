@@ -274,7 +274,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="18" cy="9" r="2.4"/><path d="M15.5 13.5c2.6.2 4.5 2.3 4.5 5"/></svg>
         Clients
       </a>
-      <a href="admin-therapists.html" class="nav-item" data-view="therapists">
+      <a href="admin-therapists.html" class="nav-item active" data-view="therapists">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a5 5 0 0 1 5 5v2a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5Z"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
         Therapists
       </a>
@@ -325,81 +325,64 @@
 
     <main class="view-wrap">
 
-      <!-- ===== DASHBOARD ===== -->
-      <section class="view active" data-view-content="dashboard">
-        <div class="page-head" data-aos="fade-up">
-          <h1>Good morning, Rohan.</h1>
-          <p>Here's how the practice is doing across 284 active clients today.</p>
+      <!-- ===== THERAPISTS ===== -->
+      <section class="view active" data-view-content="therapists">
+        
+        <!-- Section 1: Header & Actions -->
+        <div class="page-head" style="display:flex; justify-content:space-between; align-items:flex-end;" data-aos="fade-up">
+          <div>
+            <h1>Therapist Management</h1>
+            <p>5 clinicians currently active on Haven. Monitor caseload and performance.</p>
+          </div>
+          <button class="btn">Add New Therapist</button>
         </div>
 
-        <section class="kpi-row">
-          <div class="kpi-card" data-aos="fade-up" data-aos-delay="0">
-            <div class="top"><div class="icon">👥</div><span class="trend up">+3.2%</span></div>
-            <div class="val"><span class="count" data-target="284">0</span></div>
-            <div class="label">Active clients</div>
+        <!-- Section 2: Therapist Utilization Overview -->
+        <div class="panel" data-aos="fade-up" style="margin-bottom:26px;">
+          <div class="panel-head"><h2>Utilization Overview</h2></div>
+          <div class="hbar-list" data-hbars>
+            <div class="hbar-row"><div class="top"><span>Dr. Meera Nair (Near Capacity)</span><span>92%</span></div><div class="hbar-track"><div class="hbar-fill" style="background:#D2503B" data-w="92"></div></div></div>
+            <div class="hbar-row"><div class="top"><span>Dr. Arjun Bose</span><span>84%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="84"></div></div></div>
+            <div class="hbar-row"><div class="top"><span>Dr. Farah Sheikh</span><span>77%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="77"></div></div></div>
+            <div class="hbar-row"><div class="top"><span>Dr. Kabir Rao</span><span>65%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="65"></div></div></div>
+            <div class="hbar-row"><div class="top"><span>Dr. Leah Thomas (Available)</span><span>58%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="58"></div></div></div>
           </div>
-          <div class="kpi-card" data-aos="fade-up" data-aos-delay="80">
-            <div class="top"><div class="icon">🗓️</div><span class="trend up">+8</span></div>
-            <div class="val"><span class="count" data-target="96">0</span></div>
-            <div class="label">Sessions this week</div>
-          </div>
-          <div class="kpi-card gauge-card" data-aos="fade-up" data-aos-delay="160">
-            <div class="gauge-wrap">
-              <svg width="100" height="100" viewBox="0 0 110 110">
-                <circle cx="55" cy="55" r="46" stroke="var(--surface-2)" stroke-width="10" fill="none"/>
-                <circle id="gaugeArc" cx="55" cy="55" r="46" stroke="url(#gaugeGrad)" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="289" stroke-dashoffset="289"/>
-                <defs><linearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8846B"/><stop offset="100%" stop-color="#C9A24B"/></linearGradient></defs>
-              </svg>
-              <div class="gauge-num"><span class="n"><span class="count" data-target="74">0</span></span><span class="s">WELLBEING IDX</span></div>
-            </div>
-          </div>
-          <div class="kpi-card" data-aos="fade-up" data-aos-delay="240">
-            <div class="top"><div class="icon">⚠️</div><span class="trend down">2 new</span></div>
-            <div class="val"><span class="count" data-target="5">0</span></div>
-            <div class="label">Open risk alerts</div>
-          </div>
-        </section>
+        </div>
 
+        <!-- Section 3: Therapist Roster Grid -->
+        <div class="therapist-grid" style="margin-bottom:26px;">
+          <div class="therapist-card" data-aos="fade-up" data-aos-delay="0"><div class="who"><div class="dot">MN</div><div><p>Dr. Meera Nair</p><p>CBT · 12 yrs experience</p></div></div><div class="therapist-stats"><div><p class="n">38</p><p class="l">Caseload</p></div><div><p class="n">4.9</p><p class="l">Rating</p></div><div><p class="n">6</p><p class="l">This week</p></div></div></div>
+          <div class="therapist-card" data-aos="fade-up" data-aos-delay="80"><div class="who"><div class="dot">AB</div><div><p>Dr. Arjun Bose</p><p>Psychodynamic · 9 yrs</p></div></div><div class="therapist-stats"><div><p class="n">34</p><p class="l">Caseload</p></div><div><p class="n">4.7</p><p class="l">Rating</p></div><div><p class="n">5</p><p class="l">This week</p></div></div></div>
+          <div class="therapist-card" data-aos="fade-up" data-aos-delay="160"><div class="who"><div class="dot">FS</div><div><p>Dr. Farah Sheikh</p><p>Family therapy · 7 yrs</p></div></div><div class="therapist-stats"><div><p class="n">29</p><p class="l">Caseload</p></div><div><p class="n">4.8</p><p class="l">Rating</p></div><div><p class="n">4</p><p class="l">This week</p></div></div></div>
+          <div class="therapist-card" data-aos="fade-up" data-aos-delay="240"><div class="who"><div class="dot">KR</div><div><p>Dr. Kabir Rao</p><p>DBT · 5 yrs</p></div></div><div class="therapist-stats"><div><p class="n">26</p><p class="l">Caseload</p></div><div><p class="n">4.6</p><p class="l">Rating</p></div><div><p class="n">4</p><p class="l">This week</p></div></div></div>
+          <div class="therapist-card" data-aos="fade-up" data-aos-delay="320"><div class="who"><div class="dot">LT</div><div><p>Dr. Leah Thomas</p><p>Trauma-informed · 6 yrs</p></div></div><div class="therapist-stats"><div><p class="n">24</p><p class="l">Caseload</p></div><div><p class="n">4.9</p><p class="l">Rating</p></div><div><p class="n">3</p><p class="l">This week</p></div></div></div>
+        </div>
+
+        <!-- Section 4 & 5: Performance & Recent Notes -->
         <section class="charts-grid">
+          <!-- Performance -->
           <div class="panel" data-aos="fade-up">
-            <div class="panel-head"><h2>Session volume</h2><span class="legend">Last 7 weeks</span></div>
-            <div class="bar-chart" data-chart>
-              <div class="col" style="--h:52%"><div class="bar"></div><span>W1</span></div>
-              <div class="col" style="--h:61%"><div class="bar"></div><span>W2</span></div>
-              <div class="col" style="--h:58%"><div class="bar"></div><span>W3</span></div>
-              <div class="col" style="--h:70%"><div class="bar"></div><span>W4</span></div>
-              <div class="col" style="--h:66%"><div class="bar"></div><span>W5</span></div>
-              <div class="col" style="--h:82%"><div class="bar"></div><span>W6</span></div>
-              <div class="col" style="--h:96%"><div class="bar"></div><span>W7</span></div>
+            <div class="panel-head"><h2>Performance Metrics</h2></div>
+            <div style="display:flex; gap:20px; flex-wrap:wrap; margin-top:16px;">
+              <div style="flex:1; background:var(--surface-2); padding:20px; border-radius:12px; text-align:center;">
+                <div style="font-size:2rem; font-weight:600; color:var(--text-1);">94%</div>
+                <div style="color:var(--text-2); font-size:0.85rem; margin-top:4px;">Session Completion</div>
+              </div>
+              <div style="flex:1; background:var(--surface-2); padding:20px; border-radius:12px; text-align:center;">
+                <div style="font-size:2rem; font-weight:600; color:var(--text-1);">4.8/5</div>
+                <div style="color:var(--text-2); font-size:0.85rem; margin-top:4px;">Avg Client Satisfaction</div>
+              </div>
             </div>
           </div>
+          <!-- Recent Notes -->
           <div class="panel" data-aos="fade-up" data-aos-delay="100">
-            <div class="panel-head"><h2>Therapist utilization</h2></div>
-            <div class="hbar-list" data-hbars>
-              <div class="hbar-row"><div class="top"><span>Dr. Meera Nair</span><span>92%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="92"></div></div></div>
-              <div class="hbar-row"><div class="top"><span>Dr. Arjun Bose</span><span>84%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="84"></div></div></div>
-              <div class="hbar-row"><div class="top"><span>Dr. Farah Sheikh</span><span>77%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="77"></div></div></div>
-              <div class="hbar-row"><div class="top"><span>Dr. Kabir Rao</span><span>65%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="65"></div></div></div>
-              <div class="hbar-row"><div class="top"><span>Dr. Leah Thomas</span><span>58%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="58"></div></div></div>
-            </div>
+            <div class="panel-head"><h2>Recent Clinician Notes</h2></div>
+            <div class="activity-item"><div class="ic" style="background:#7C9B8E; color:white;">MN</div><p>Dr. Nair uploaded new treatment plan for Priya.</p><span class="time">10m ago</span></div>
+            <div class="activity-item"><div class="ic" style="background:#E8846B; color:white;">AB</div><p>Dr. Bose requested schedule adjustment.</p><span class="time">1h ago</span></div>
+            <div class="activity-item"><div class="ic" style="background:#C9A24B; color:white;">FS</div><p>Dr. Sheikh finalized discharge summary.</p><span class="time">3h ago</span></div>
           </div>
         </section>
 
-        <section class="lower-grid">
-          <div class="panel" data-aos="fade-up">
-            <div class="panel-head"><h2>Top risk alerts</h2><span class="legend">5 open</span></div>
-            <div class="alert-item"><span class="sev high"></span><div class="body"><p class="name">Neha Reddy</p><p class="note">Mood score dropped sharply after missed session.</p></div><span class="time">2h ago</span></div>
-            <div class="alert-item"><span class="sev high"></span><div class="body"><p class="name">Imran Sheikh</p><p class="note">Flagged keywords in latest journal entry.</p></div><span class="time">5h ago</span></div>
-            <div class="alert-item"><span class="sev medium"></span><div class="body"><p class="name">Vikram Khanna</p><p class="note">Missed two consecutive check-ins.</p></div><span class="time">1d ago</span></div>
-          </div>
-          <div class="panel" data-aos="fade-up" data-aos-delay="100">
-            <div class="panel-head"><h2>Live activity</h2></div>
-            <div class="activity-item"><div class="ic">✅</div><p>Dr. Nair completed a session with Priya Sundaram</p><span class="time">14:02</span></div>
-            <div class="activity-item"><div class="ic">📝</div><p>Rehan Das submitted a journal entry</p><span class="time">13:41</span></div>
-            <div class="activity-item"><div class="ic">📅</div><p>New session booked — Dr. Farah Sheikh</p><span class="time">13:20</span></div>
-            <div class="activity-item"><div class="ic">💬</div><p>Aditya Joshi completed mood check-in</p><span class="time">12:58</span></div>
-          </div>
-        </section>
       </section>
     </main>
   </div>

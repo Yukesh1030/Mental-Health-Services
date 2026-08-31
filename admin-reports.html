@@ -282,7 +282,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
         Sessions
       </a>
-      <a href="admin-reports.html" class="nav-item" data-view="reports">
+      <a href="admin-reports.html" class="nav-item active" data-view="reports">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V6M10 19V10M16 19V4M22 19H2"/></svg>
         Reports
       </a>
@@ -325,81 +325,93 @@
 
     <main class="view-wrap">
 
-      <!-- ===== DASHBOARD ===== -->
-      <section class="view active" data-view-content="dashboard">
-        <div class="page-head" data-aos="fade-up">
-          <h1>Good morning, Rohan.</h1>
-          <p>Here's how the practice is doing across 284 active clients today.</p>
+      <!-- ===== REPORTS ===== -->
+      <section class="view active" data-view-content="reports">
+        
+        <!-- Section 1: Header & Export Options -->
+        <div class="page-head" style="display:flex; justify-content:space-between; align-items:flex-end;" data-aos="fade-up">
+          <div>
+            <h1>Practice Reports & Analytics</h1>
+            <p>Aggregate trends, financials, and automated insights across the practice.</p>
+          </div>
+          <div style="display:flex; gap:10px;">
+            <button class="btn ghost">Export CSV</button>
+            <button class="btn">Export PDF</button>
+          </div>
         </div>
 
-        <section class="kpi-row">
+        <!-- Section 2: Financial & Growth KPIs -->
+        <section class="kpi-row" style="margin-bottom:26px;">
           <div class="kpi-card" data-aos="fade-up" data-aos-delay="0">
-            <div class="top"><div class="icon">👥</div><span class="trend up">+3.2%</span></div>
-            <div class="val"><span class="count" data-target="284">0</span></div>
-            <div class="label">Active clients</div>
+            <div class="top"><div class="icon">💰</div><span class="trend up">+15%</span></div>
+            <div class="val">$<span class="count" data-target="42">0</span>k</div>
+            <div class="label">Monthly Revenue</div>
           </div>
           <div class="kpi-card" data-aos="fade-up" data-aos-delay="80">
-            <div class="top"><div class="icon">🗓️</div><span class="trend up">+8</span></div>
-            <div class="val"><span class="count" data-target="96">0</span></div>
-            <div class="label">Sessions this week</div>
+            <div class="top"><div class="icon">📈</div><span class="trend up">+4%</span></div>
+            <div class="val"><span class="count" data-target="92">0</span>%</div>
+            <div class="label">Client Retention</div>
           </div>
-          <div class="kpi-card gauge-card" data-aos="fade-up" data-aos-delay="160">
-            <div class="gauge-wrap">
-              <svg width="100" height="100" viewBox="0 0 110 110">
-                <circle cx="55" cy="55" r="46" stroke="var(--surface-2)" stroke-width="10" fill="none"/>
-                <circle id="gaugeArc" cx="55" cy="55" r="46" stroke="url(#gaugeGrad)" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="289" stroke-dashoffset="289"/>
-                <defs><linearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8846B"/><stop offset="100%" stop-color="#C9A24B"/></linearGradient></defs>
-              </svg>
-              <div class="gauge-num"><span class="n"><span class="count" data-target="74">0</span></span><span class="s">WELLBEING IDX</span></div>
-            </div>
+          <div class="kpi-card" data-aos="fade-up" data-aos-delay="160">
+            <div class="top"><div class="icon">⏳</div></div>
+            <div class="val"><span class="count" data-target="45">0</span>m</div>
+            <div class="label">Avg Session Length</div>
           </div>
           <div class="kpi-card" data-aos="fade-up" data-aos-delay="240">
-            <div class="top"><div class="icon">⚠️</div><span class="trend down">2 new</span></div>
-            <div class="val"><span class="count" data-target="5">0</span></div>
-            <div class="label">Open risk alerts</div>
+            <div class="top"><div class="icon">⭐</div><span class="trend up">+0.2</span></div>
+            <div class="val"><span class="count" data-target="4.8">0</span></div>
+            <div class="label">Avg Satisfaction</div>
           </div>
         </section>
 
         <section class="charts-grid">
-          <div class="panel" data-aos="fade-up">
-            <div class="panel-head"><h2>Session volume</h2><span class="legend">Last 7 weeks</span></div>
-            <div class="bar-chart" data-chart>
-              <div class="col" style="--h:52%"><div class="bar"></div><span>W1</span></div>
-              <div class="col" style="--h:61%"><div class="bar"></div><span>W2</span></div>
-              <div class="col" style="--h:58%"><div class="bar"></div><span>W3</span></div>
-              <div class="col" style="--h:70%"><div class="bar"></div><span>W4</span></div>
-              <div class="col" style="--h:66%"><div class="bar"></div><span>W5</span></div>
-              <div class="col" style="--h:82%"><div class="bar"></div><span>W6</span></div>
-              <div class="col" style="--h:96%"><div class="bar"></div><span>W7</span></div>
+          <!-- Section 3: Custom Report Generator -->
+          <div class="panel" data-aos="fade-up" style="flex:1;">
+            <div class="panel-head"><h2>Custom Report Builder</h2></div>
+            <div style="display:flex; flex-direction:column; gap:16px; margin-top:16px;">
+              <div class="form-row">
+                <label>Date Range</label>
+                <select style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border); background:var(--surface-1); color:var(--text-1);"><option>Last 30 Days</option><option>Last Quarter</option><option>Year to Date</option></select>
+              </div>
+              <div class="form-row">
+                <label>Data Points</label>
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                  <button class="chip active">Client Growth</button>
+                  <button class="chip active">Revenue</button>
+                  <button class="chip">Risk Alerts</button>
+                  <button class="chip">Session Attendance</button>
+                </div>
+              </div>
+              <button class="btn" style="width:100%;">Generate Custom Report</button>
             </div>
           </div>
-          <div class="panel" data-aos="fade-up" data-aos-delay="100">
-            <div class="panel-head"><h2>Therapist utilization</h2></div>
-            <div class="hbar-list" data-hbars>
-              <div class="hbar-row"><div class="top"><span>Dr. Meera Nair</span><span>92%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="92"></div></div></div>
-              <div class="hbar-row"><div class="top"><span>Dr. Arjun Bose</span><span>84%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="84"></div></div></div>
-              <div class="hbar-row"><div class="top"><span>Dr. Farah Sheikh</span><span>77%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="77"></div></div></div>
-              <div class="hbar-row"><div class="top"><span>Dr. Kabir Rao</span><span>65%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="65"></div></div></div>
-              <div class="hbar-row"><div class="top"><span>Dr. Leah Thomas</span><span>58%</span></div><div class="hbar-track"><div class="hbar-fill" data-w="58"></div></div></div>
+
+          <div style="flex:1.5; display:flex; flex-direction:column; gap:26px;">
+            <!-- Section 5: Automated Insights (AI Summary) -->
+            <div class="panel" data-aos="fade-up" data-aos-delay="100">
+              <div class="panel-head"><h2>✨ Automated Insights</h2></div>
+              <ul style="list-style:none; padding:0; margin:16px 0 0 0; display:flex; flex-direction:column; gap:12px;">
+                <li style="display:flex; gap:10px; align-items:flex-start;">
+                  <div style="background:var(--primary-light); color:var(--primary); padding:4px 8px; border-radius:6px; font-weight:bold;">↑</div>
+                  <p style="margin:0; font-size:0.95rem; color:var(--text-1);"><strong>Client retention</strong> increased by 5% this quarter, likely due to consistent automated mood check-ins.</p>
+                </li>
+                <li style="display:flex; gap:10px; align-items:flex-start;">
+                  <div style="background:var(--surface-2); color:var(--text-2); padding:4px 8px; border-radius:6px; font-weight:bold;">!</div>
+                  <p style="margin:0; font-size:0.95rem; color:var(--text-1);"><strong>Therapist utilization</strong> for Dr. Nair has exceeded 90%. Consider pausing new assignments to prevent burnout.</p>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Section 4: Downloadable Reports Archive -->
+            <div class="panel" data-aos="fade-up" data-aos-delay="200">
+              <div class="panel-head"><h2>Recent Automated Reports</h2></div>
+              <div class="activity-item"><div class="ic" style="background:var(--surface-2);">📄</div><p>August 2026 Monthly Summary</p><span class="time" style="color:var(--primary); cursor:pointer;">Download</span></div>
+              <div class="activity-item"><div class="ic" style="background:var(--surface-2);">📄</div><p>Q2 Financial Breakdown</p><span class="time" style="color:var(--primary); cursor:pointer;">Download</span></div>
+              <div class="activity-item"><div class="ic" style="background:var(--surface-2);">📄</div><p>July 2026 Monthly Summary</p><span class="time" style="color:var(--primary); cursor:pointer;">Download</span></div>
             </div>
           </div>
         </section>
 
-        <section class="lower-grid">
-          <div class="panel" data-aos="fade-up">
-            <div class="panel-head"><h2>Top risk alerts</h2><span class="legend">5 open</span></div>
-            <div class="alert-item"><span class="sev high"></span><div class="body"><p class="name">Neha Reddy</p><p class="note">Mood score dropped sharply after missed session.</p></div><span class="time">2h ago</span></div>
-            <div class="alert-item"><span class="sev high"></span><div class="body"><p class="name">Imran Sheikh</p><p class="note">Flagged keywords in latest journal entry.</p></div><span class="time">5h ago</span></div>
-            <div class="alert-item"><span class="sev medium"></span><div class="body"><p class="name">Vikram Khanna</p><p class="note">Missed two consecutive check-ins.</p></div><span class="time">1d ago</span></div>
-          </div>
-          <div class="panel" data-aos="fade-up" data-aos-delay="100">
-            <div class="panel-head"><h2>Live activity</h2></div>
-            <div class="activity-item"><div class="ic">✅</div><p>Dr. Nair completed a session with Priya Sundaram</p><span class="time">14:02</span></div>
-            <div class="activity-item"><div class="ic">📝</div><p>Rehan Das submitted a journal entry</p><span class="time">13:41</span></div>
-            <div class="activity-item"><div class="ic">📅</div><p>New session booked — Dr. Farah Sheikh</p><span class="time">13:20</span></div>
-            <div class="activity-item"><div class="ic">💬</div><p>Aditya Joshi completed mood check-in</p><span class="time">12:58</span></div>
-          </div>
-        </section>
       </section>
     </main>
   </div>
