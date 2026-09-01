@@ -193,8 +193,17 @@
         }
 
         @media (max-width: 768px) {
+            .page-hero-bg {
+                object-position: 75% center;
+            }
             .booking-layout, .location-wrapper {
                 flex-direction: column;
+            }
+            .booking-form-wrapper {
+                padding: 32px 20px;
+            }
+            .booking-info-wrapper {
+                padding: 40px 20px;
             }
             .form-row {
                 flex-direction: column;
@@ -202,6 +211,16 @@
             }
             .form-row .form-group {
                 margin-bottom: 24px;
+            }
+            .pref-cards {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .location-wrapper {
+                padding: 24px 20px;
+            }
+            .location-map {
+                height: 250px;
             }
         }
     </style>
