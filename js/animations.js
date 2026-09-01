@@ -30,6 +30,24 @@ const Animations = {
             }
         });
     },
+    initSharedAnimations: () => {
+        if (typeof gsap === 'undefined') return;
+        
+        // --- Flip Open Images ---
+        gsap.utils.toArray('.section-07 img, .flip-img').forEach((img) => {
+            gsap.from(img, {
+                scrollTrigger: {
+                    trigger: img,
+                    start: "top 80%",
+                },
+                rotationY: 90,
+                transformOrigin: "left center",
+                opacity: 0,
+                duration: 1.2,
+                ease: "back.out(1.2)"
+            });
+        });
+    },
     initHomeAnimations: () => {
         if (typeof gsap === 'undefined') return;
         
@@ -204,6 +222,7 @@ const Animations = {
 // Auto-init based on page
 document.addEventListener('DOMContentLoaded', () => {
     Animations.initFAQ();
+    Animations.initSharedAnimations();
     if (document.querySelector('.home-page-marker')) {
         Animations.initHomeAnimations();
     }
