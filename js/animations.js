@@ -1,5 +1,35 @@
 // Global Animation Controller
 const Animations = {
+    initFAQ: () => {
+        if (typeof gsap === 'undefined') return;
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const head = item.querySelector('.faq-head');
+            const body = item.querySelector('.faq-body');
+            const icon = item.querySelector('.faq-icon');
+            
+            if (head) {
+                head.addEventListener('click', () => {
+                    const isOpen = item.classList.contains('open');
+                    
+                    // Close all others
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('open');
+                        const otherBody = otherItem.querySelector('.faq-body');
+                        const otherIcon = otherItem.querySelector('.faq-icon');
+                        if(otherBody) gsap.to(otherBody, { height: 0, opacity: 0, duration: 0.3 });
+                        if(otherIcon) gsap.to(otherIcon, { rotation: 0, duration: 0.3 });
+                    });
+
+                    if (!isOpen) {
+                        item.classList.add('open');
+                        if(body) gsap.to(body, { height: 'auto', opacity: 1, duration: 0.4, ease: "power2.out" });
+                        if(icon) gsap.to(icon, { rotation: 45, duration: 0.3 });
+                    }
+                });
+            }
+        });
+    },
     initHomeAnimations: () => {
         if (typeof gsap === 'undefined') return;
         
@@ -100,30 +130,7 @@ const Animations = {
             });
         });
 
-        // --- Section 09: FAQ Accordion ---
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-            const head = item.querySelector('.faq-head');
-            const body = item.querySelector('.faq-body');
-            const icon = item.querySelector('.faq-icon');
-            
-            head.addEventListener('click', () => {
-                const isOpen = item.classList.contains('open');
-                
-                // Close all others
-                faqItems.forEach(otherItem => {
-                    otherItem.classList.remove('open');
-                    gsap.to(otherItem.querySelector('.faq-body'), { height: 0, opacity: 0, duration: 0.3 });
-                    gsap.to(otherItem.querySelector('.faq-icon'), { rotation: 0, duration: 0.3 });
-                });
 
-                if (!isOpen) {
-                    item.classList.add('open');
-                    gsap.to(body, { height: 'auto', opacity: 1, duration: 0.4, ease: "power2.out" });
-                    gsap.to(icon, { rotation: 45, duration: 0.3 });
-                }
-            });
-        });
 
         // --- Section 10: Final CTA ---
         gsap.from('.final-cta-bg', {
@@ -152,6 +159,7 @@ const Animations = {
 
 // Auto-init based on page
 document.addEventListener('DOMContentLoaded', () => {
+    Animations.initFAQ();
     if (document.querySelector('.home-page-marker')) {
         Animations.initHomeAnimations();
     }
