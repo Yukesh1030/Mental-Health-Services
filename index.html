@@ -110,23 +110,30 @@
         .area-card {
             scroll-snap-align: center;
             width: 400px;
-            height: 500px;
+            height: 350px;
             background: var(--color-white);
+            border: 1px solid #e0e0e0;
             border-radius: var(--border-radius-lg);
             padding: 40px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            text-align: left;
             box-shadow: var(--shadow-sm);
             cursor: pointer;
-            transition: all var(--transition-fast);
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
         }
         .area-card:hover {
-            background: var(--color-primary);
-            color: var(--color-secondary);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
         }
-        .area-card:hover h3, .area-card:hover p {
-            color: var(--color-secondary);
+        .area-card .meet-specialists {
+            transition: color var(--transition-normal);
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+        .area-card:hover .meet-specialists {
+            color: var(--color-text-dark);
         }
 
         /* Section 03 - Approach */
@@ -426,7 +433,7 @@
                         <h3>Anxiety</h3>
                         <p>Navigate overwhelming feelings and discover tools to ground yourself.</p>
                     </div>
-                    <a href="Services.html" style="font-weight: 500;">Meet specialists &rarr;</a>
+                    <a href="Services.html" class="meet-specialists" style="font-weight: 500;">Meet specialists &rarr;</a>
                 </div>
                 <div class="area-card">
                     <div>
@@ -434,7 +441,7 @@
                         <h3>Stress & Burnout</h3>
                         <p>Recover your energy and build boundaries that protect your peace.</p>
                     </div>
-                    <a href="Services.html" style="font-weight: 500;">Meet specialists &rarr;</a>
+                    <a href="Services.html" class="meet-specialists" style="font-weight: 500;">Meet specialists &rarr;</a>
                 </div>
                 <div class="area-card">
                     <div>
@@ -442,7 +449,7 @@
                         <h3>Depression</h3>
                         <p>Find compassionate support to help you move through the fog.</p>
                     </div>
-                    <a href="Services.html" style="font-weight: 500;">Meet specialists &rarr;</a>
+                    <a href="Services.html" class="meet-specialists" style="font-weight: 500;">Meet specialists &rarr;</a>
                 </div>
                 <div class="area-card">
                     <div>
@@ -450,7 +457,7 @@
                         <h3>Relationships</h3>
                         <p>Improve communication, connection, and understanding.</p>
                     </div>
-                    <a href="Services.html" style="font-weight: 500;">Meet specialists &rarr;</a>
+                    <a href="Services.html" class="meet-specialists" style="font-weight: 500;">Meet specialists &rarr;</a>
                 </div>
                 <div class="area-card">
                     <div>
@@ -458,7 +465,7 @@
                         <h3>Life Transitions</h3>
                         <p>Navigate major changes, loss, and new beginnings with guidance.</p>
                     </div>
-                    <a href="Services.html" style="font-weight: 500;">Meet specialists &rarr;</a>
+                    <a href="Services.html" class="meet-specialists" style="font-weight: 500;">Meet specialists &rarr;</a>
                 </div>
             </div>
         </div>
