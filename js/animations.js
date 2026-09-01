@@ -34,11 +34,14 @@ const Animations = {
         if (typeof gsap === 'undefined') return;
         
         // --- Flip Open Images ---
-        gsap.utils.toArray('.section-07 img, .flip-img').forEach((img) => {
+        // Target all images across the site, but safely exclude logos, backgrounds, therapist avatars, and parallax images
+        const imagesToFlip = gsap.utils.toArray('img:not(.nav-brand img):not(.footer-brand img):not(.brand-logo):not(.page-hero-bg):not(.therapist-img):not(.approach-parallax-img)');
+        
+        imagesToFlip.forEach((img) => {
             gsap.from(img, {
                 scrollTrigger: {
                     trigger: img,
-                    start: "top 80%",
+                    start: "top 85%",
                 },
                 rotationY: 90,
                 transformOrigin: "left center",
