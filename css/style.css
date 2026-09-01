@@ -16,11 +16,11 @@
   /* Typography */
   --font-family: 'Poppins', sans-serif;
   
-  /* Desktop Typography Scale */
-  --text-hero: clamp(72px, 8vw, 96px);
-  --text-h2: clamp(48px, 5vw, 64px);
-  --text-h3: clamp(32px, 4vw, 48px);
-  --text-h4: clamp(24px, 3vw, 32px);
+  /* Typography Scale */
+  --text-hero: clamp(40px, 8vw, 96px);
+  --text-h2: clamp(32px, 5vw, 64px);
+  --text-h3: clamp(24px, 4vw, 48px);
+  --text-h4: clamp(20px, 3vw, 32px);
   --text-body: clamp(16px, 1.5vw, 18px);
   --text-small: clamp(13px, 1vw, 14px);
   
