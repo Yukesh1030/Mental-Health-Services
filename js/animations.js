@@ -105,6 +105,20 @@ const Animations = {
             }
         });
 
+        // --- Section 04: Meet Our Therapists ---
+        gsap.from('.therapist-card', {
+            scrollTrigger: {
+                trigger: '.section-04',
+                start: "top 75%",
+            },
+            y: 50,
+            opacity: 0,
+            scale: 0.95,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "back.out(1.2)"
+        });
+
         // --- Section 05: How It Works (Timeline) ---
         gsap.to('.timeline-progress-line', {
             height: '100%',
