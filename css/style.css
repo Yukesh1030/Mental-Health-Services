@@ -203,6 +203,12 @@ img {
   border-color: var(--color-primary);
 }
 
+.resource-card h3 {
+  font-size: clamp(20px, 2.5vw, 28px);
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
 /* ==========================================================================
    Buttons & Forms
    ========================================================================== */
