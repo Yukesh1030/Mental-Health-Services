@@ -146,6 +146,36 @@ const Animations = {
 
 
 
+        // --- Generic Section Text Animations ---
+        const sectionTextElements = gsap.utils.toArray('.section h2, .section > .container > p, .section > .container > div > p, .section > .container > div > h2');
+        
+        sectionTextElements.forEach((elem) => {
+            // Skip elements that are inside specific animated components to avoid conflicting animations
+            if (elem.closest('.therapist-card') || 
+                elem.closest('.stagger-card') || 
+                elem.closest('.approach-item') || 
+                elem.closest('.timeline-item') ||
+                elem.closest('.area-card') ||
+                elem.closest('.resource-card') ||
+                elem.closest('.faq-item') ||
+                elem.closest('.final-cta-content') ||
+                elem.closest('.hero-text') ||
+                elem.closest('.page-hero')) {
+                return;
+            }
+            
+            gsap.from(elem, {
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 85%",
+                },
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+        });
+
         // --- Section 10: Final CTA ---
         gsap.from('.final-cta-bg', {
             scale: 1.1,
