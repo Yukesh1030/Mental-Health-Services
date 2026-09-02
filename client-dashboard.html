@@ -259,7 +259,7 @@
 <div class="overlay" id="overlay"></div>
 <aside class="sidebar" id="sidebar">
 <div class="brand">
-<img alt="STACKLY Wellness" src="assets/Brand-logo.webp" style="height: 32px; width: auto;"/>
+<a href="index.html"><img alt="STACKLY Wellness" src="assets/Brand-logo.webp" style="height: 32px; width: auto;"/></a>
 <button aria-label="Close menu" class="sidebar-close" id="sidebarClose">
 <svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16"><path d="M18 6 6 18M6 6l12 12"></path></svg>
 </button>
@@ -281,7 +281,7 @@
 <div class="topbar">
 <button aria-label="Open menu" class="hamburger" id="hamburger"><span></span></button>
 <div class="brand-mini">
-<img alt="STACKLY Wellness" src="assets/Brand-logo.webp" style="height: 24px; width: auto;"/>
+<a href="index.html"><img alt="STACKLY Wellness" src="assets/Brand-logo.webp" style="height: 24px; width: auto;"/></a>
 </div>
 <div class="search">
 <svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
@@ -298,7 +298,7 @@
 <div class="hero">
 <div class="hero-text" data-aos="fade-right">
 <p class="eyebrow">Thursday, September 3</p>
-<h1>Good evening,<br/><span class="accent-text">Asha</span>.</h1>
+<h1>Good evening,<br/><span class="accent-text" id="greetingName">Asha</span>.</h1>
 <p class="hero-sub">You've shown up for yourself twelve days running. Take a slow minute before your next session — the ring is here whenever you need it.</p>
 </div>
 <div class="breathing-card" data-aos="fade-left">
@@ -554,15 +554,11 @@
 
         var nameEl = document.getElementById('userName');
         var avatarEl = document.getElementById('userAvatar');
+        var greetingNameEl = document.getElementById('greetingName');
         
         if (nameEl) nameEl.textContent = formatted;
         if (avatarEl) avatarEl.textContent = initials;
-
-        document.querySelectorAll('h1').forEach(function(h1) {
-            if (h1.textContent.indexOf('Good morning') !== -1) {
-                h1.textContent = 'Good morning, ' + formatted + '.';
-            }
-        });
+        if (greetingNameEl) greetingNameEl.textContent = formatted;
     }
 
     if (document.readyState === 'loading') {
