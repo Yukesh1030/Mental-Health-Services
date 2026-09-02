@@ -361,10 +361,11 @@ img {
   .navbar:not(.scrolled) .nav-link {
     color: var(--color-white);
   }
-  .navbar:not(.scrolled) .nav-brand img {
-    filter: brightness(0) invert(1);
-    transition: filter var(--transition-normal);
-  }
+}
+
+.navbar:not(.scrolled) .nav-brand img {
+  filter: brightness(0) invert(1);
+  transition: filter var(--transition-normal);
 }
 
 .navbar:not(.scrolled):not(.menu-open) .mobile-menu-btn {
